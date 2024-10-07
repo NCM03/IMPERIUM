@@ -9,3 +9,5 @@ UserSettings/
 
 *.tmp
 *.csproj
+*.sln
+*.vsconfig
