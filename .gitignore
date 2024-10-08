@@ -1,13 +1,41 @@
-# Thư mục chứa các file tạm thời và dữ liệu không cần thiết
-[Ll]ibrary/
+# Thư mục tạm của Unity
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
+[Ll]ibrary/
 [Ll]ogs/
-UserSettings/
+[Uu]ser[Ss]ettings/
 
-*.tmp
+# Visual Studio
+.vs/
 *.csproj
+*.unityproj
 *.sln
-*.vsconfig
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.opendb
+*.VC.db
+
+# Auto-generated JetBrains Rider plugin
+.idea/
+*.idea/
+
+# Các tệp hệ thống
+.DS_Store
+Thumbs.db
+
+# Tệp ẩn của macOS
+._*
+
+# Các tệp khác
+*.pidb.meta
+*.pidb
+*.pdb.meta
+*.pdb
