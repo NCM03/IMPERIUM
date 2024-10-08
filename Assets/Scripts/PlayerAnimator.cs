@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
 
     string triggerWalkLeft = "walk_left";
     string triggerWalkRight = "walk_right";
-
+    string CutNormal = "CutNormal";
     Animator animator;
     float animDuration = 0.5f;
     float lastTriggerTime;
@@ -30,6 +30,14 @@ public class PlayerAnimator : MonoBehaviour
             return;
 
         animator.SetTrigger(triggerWalkRight);
+        lastTriggerTime = Time.time;
+    }
+    public void CutNormala()
+    {
+        if (Time.time < lastTriggerTime + animDuration)
+            return;
+
+        animator.SetTrigger(CutNormal);
         lastTriggerTime = Time.time;
     }
 
