@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -13,8 +14,6 @@ public class ChangeColorButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public Image startImage; 
     public Sprite redSprite;  
     public Sprite whiteSprite;
-    public GameObject startGame;
-    public GameObject canvasWhatYouWant;
 
     void Start()
     {
@@ -41,7 +40,6 @@ public class ChangeColorButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        startGame.SetActive(false);
-        canvasWhatYouWant.SetActive(true);
+        SceneManager.LoadScene("");
     }
 }
