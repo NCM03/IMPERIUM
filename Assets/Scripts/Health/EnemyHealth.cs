@@ -4,7 +4,9 @@ using UnityEngine.UI;
 public class EnemyHealth : MonoBehaviour
 {
     public int maxHealth = 100;
+    public int defense;
     public int currentHealth;
+    public int dodgeChance;
     public Image healthBar;
 
     private void Start()
@@ -23,6 +25,11 @@ public class EnemyHealth : MonoBehaviour
         {
             Die();
         }
+    }
+    public bool CanDodge()
+    {
+        int randomChance = Random.Range(0, 100);
+        return randomChance < dodgeChance;
     }
 
     private void UpdateHealthUI()
