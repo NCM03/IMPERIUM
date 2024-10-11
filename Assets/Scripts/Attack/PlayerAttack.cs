@@ -4,12 +4,12 @@ using System.IO;
 public class PlayerAttack : MonoBehaviour
 {
     public int attackDamage;  // Sát thương của Player (sẽ được load từ dữ liệu)
-    public int defense;       // Phòng thủ của Player (sẽ được load từ dữ liệu)
-    public int maxHP;         // Máu tối đa của Player (sẽ được load từ dữ liệu)
-    public int currentHP;     // Máu hiện tại của Player
-    public int maxStamina;    // Stamina tối đa của Player (sẽ được load từ dữ liệu)
-    public int currentStamina; // Stamina hiện tại của Player
-    public int dodgeChance;   // Tỉ lệ né tránh (sẽ được load từ dữ liệu)
+    //public int defense;       // Phòng thủ của Player (sẽ được load từ dữ liệu)
+    //public int maxHP;         // Máu tối đa của Player (sẽ được load từ dữ liệu)
+    //public int currentHP;     // Máu hiện tại của Player
+    //public int maxStamina;    // Stamina tối đa của Player (sẽ được load từ dữ liệu)
+    //public int currentStamina; // Stamina hiện tại của Player
+    //public int dodgeChance;   // Tỉ lệ né tránh (sẽ được load từ dữ liệu)
 
     public float attackRange = 2.0f; // Khoảng cách để tấn công
     public PlayerStamina playerStamina;
@@ -27,10 +27,6 @@ public class PlayerAttack : MonoBehaviour
         // Load dữ liệu của nhân vật
         LoadPlayerData();
 
-        // Gán máu và stamina hiện tại bằng với giá trị tối đa
-        currentHP = maxHP;
-        currentStamina = maxStamina;
-
         // Kiểm tra xem Enemy đã được gán chưa
         if (enemyHealth != null)
         {
@@ -41,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
     // Hàm tấn công
     public void Attack()
     {
-        if (enemyHealth != null && currentStamina > 0)
+        if (enemyHealth != null && playerStamina.currentStamina > 0)
         {
             float distance = Vector3.Distance(transform.position, enemyTransform.position);
             if (distance <= attackRange)
@@ -84,10 +80,6 @@ public class PlayerAttack : MonoBehaviour
 
             // Tải tất cả chỉ số từ file
             attackDamage = data.attack;
-            defense = data.defense;
-            maxHP = data.hp;
-            maxStamina = data.stamina;
-            dodgeChance = data.dodge;
 
             Debug.Log("Dữ liệu nhân vật đã được load thành công!");
         }
