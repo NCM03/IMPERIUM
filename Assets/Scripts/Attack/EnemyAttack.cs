@@ -2,7 +2,7 @@
 
 public class EnemyAttack : MonoBehaviour
 {
-    public int attackDamage = 20;  // Sát thương của Enemy
+    public int attackDamage = 10;  // Sát thương của Enemy
     public float attackRange = 2.0f;
     public PlayerHealth playerHealth;  // Tham chiếu đến sức khỏe của Player
     public EnemyStamina enemyStamina;
