@@ -1,11 +1,13 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UIButtonManager : MonoBehaviour
 {
     public Button moveForwardButton;
     public Button moveBackwardButton;
-    public Button attackButton;
+    public Button weakAttackButton;
+    public Button normalAttackButton;
+    public Button strongAttackButton;
     public Button restButton;
     private TurnManager turnManager;
     private PlayerStamina playerStamina;
@@ -13,11 +15,11 @@ public class UIButtonManager : MonoBehaviour
     private PlayerAttack playerAttack;
     private Transform playerTransform;
     private EnemyMovement enemyMovement;
+    private TutorialManager tutorialManager;
     public float leftBoundary;
     public float rightBoundary;
     public float Vitrikedich = 1f;
-
-
+  
     void Start()
     {
         leftBoundary = -((1080 / 2) / 100f);
@@ -29,8 +31,9 @@ public class UIButtonManager : MonoBehaviour
         playerAttack = FindObjectOfType<PlayerAttack>();
         playerTransform = playerMovement.transform;
         enemyMovement = FindObjectOfType<EnemyMovement>();
+        tutorialManager = FindObjectOfType<TutorialManager>();
 
-
+        // Thêm các listener cho các nút
         moveForwardButton.onClick.AddListener(() => {
             playerMovement.MoveForward();
             turnManager.EndPlayerTurn();
@@ -41,8 +44,18 @@ public class UIButtonManager : MonoBehaviour
             turnManager.EndPlayerTurn();
         });
 
-        attackButton.onClick.AddListener(() => {
-            playerAttack.Attack();
+        weakAttackButton.onClick.AddListener(() => {
+            playerAttack.AttackWeak();
+            turnManager.EndPlayerTurn();
+        });
+
+        normalAttackButton.onClick.AddListener(() => {
+            playerAttack.AttackNormal();
+            turnManager.EndPlayerTurn();
+        });
+
+        strongAttackButton.onClick.AddListener(() => {
+            playerAttack.AttackStrong();
             turnManager.EndPlayerTurn();
         });
 
@@ -59,9 +72,19 @@ public class UIButtonManager : MonoBehaviour
         bool hasEnoughStamina = playerStamina.currentStamina >= 10;
         bool canMoveForward = distanceToEnemy > Vitrikedich;
         bool canMoveBackward = playerTransform.position.x > leftBoundary;
-        moveForwardButton.gameObject.SetActive(isPlayerTurn && canMoveForward && hasEnoughStamina);
-        moveBackwardButton.gameObject.SetActive(isPlayerTurn && canMoveBackward && hasEnoughStamina);
-        attackButton.gameObject.SetActive(isPlayerTurn && hasEnoughStamina);
+        int currentStep = tutorialManager.GetCurrentStep();
+        if(playerStamina.currentStamina < playerStamina.maxStamina / 2 && currentStep == 3)
+        {
+            tutorialManager.SetCurrentStep(4);
+        }
+        Debug.Log(currentStep);
+
+        // Cập nhật trạng thái của các nút
+        moveForwardButton.gameObject.SetActive(isPlayerTurn && canMoveForward && hasEnoughStamina && currentStep>=1 && currentStep<3);
+        moveBackwardButton.gameObject.SetActive(isPlayerTurn && canMoveBackward && hasEnoughStamina && currentStep >= 1 && currentStep < 3);
+        weakAttackButton.gameObject.SetActive(isPlayerTurn && hasEnoughStamina && currentStep >= 3);
+        normalAttackButton.gameObject.SetActive(isPlayerTurn && hasEnoughStamina && currentStep >= 5);
+        strongAttackButton.gameObject.SetActive(isPlayerTurn && hasEnoughStamina && currentStep >= 5);
         restButton.gameObject.SetActive(isPlayerTurn && (playerStamina.currentStamina < playerStamina.maxStamina / 2 || !hasEnoughStamina));
     }
 }

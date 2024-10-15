@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 public class PlayerMovementV2 : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PlayerMovementV2 : MonoBehaviour
     private float lastTriggerTime;
     public GameObject player;  // Đối tượng nhân vật
     public TurnManager turnManager;
+    public Transform enemyTransform;
 
     void Start()
     {
@@ -36,6 +38,8 @@ public class PlayerMovementV2 : MonoBehaviour
         if (player.transform.position.x + moveDistance <= rightBoundary && playerStamina.currentStamina > 0)
         {
             transform.position += new Vector3(moveDistance, 0, 0);
+            float distance = Vector3.Distance(transform.position, enemyTransform.position);
+            Debug.Log("Distance to enemy: " + distance);
             animator.SetTrigger(triggerWalkRight);
             playerStamina.ReduceStamina(10f);
             lastTriggerTime = Time.time;

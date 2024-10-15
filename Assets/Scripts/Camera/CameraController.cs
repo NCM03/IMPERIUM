@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public float zoomSpeed = 5f; // Tốc độ zoom
     public float maxDistance = 10f;  // Khoảng cách tối đa giữa player và enemy mà camera sẽ zoom out hết cỡ
 
+
     void Update()
     {
         // Tính khoảng cách giữa player và enemy
