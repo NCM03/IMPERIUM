@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attack\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\projectgit\\imperium\\assets\\scripts\\health\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\assets\\scripts\\health\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\health\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -15,11 +15,11 @@
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\changecolorbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\projectgit\\imperium\\assets\\scripts\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\assets\\scripts\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\projectgit\\imperium\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -70,8 +70,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Health\\EnemyHealth.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T17:18:16.066Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T17:18:16.066Z"
             },
             {
               "$type": "Document",
@@ -81,7 +80,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Attack\\PlayerAttack.cs",
               "ToolTip": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\Attack\\PlayerAttack.cs",
               "RelativeToolTip": "Assets\\Scripts\\Attack\\PlayerAttack.cs",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAowDYAAABTAAAA",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAIwGcAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-10T17:16:18Z",
               "EditorCaption": ""
@@ -96,8 +95,7 @@
               "RelativeToolTip": "Assets\\Scripts\\index_player\\Player.cs",
               "ViewState": "AQIAAHAAAAAAAAAAAAAcwI0AAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T17:10:49.184Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-10T17:10:49.184Z"
             },
             {
               "$type": "Document",
@@ -109,8 +107,7 @@
               "RelativeToolTip": "Assets\\Scripts\\LoadScene.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-09T14:18:58.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-09T14:18:58.873Z"
             },
             {
               "$type": "Document",
@@ -122,8 +119,7 @@
               "RelativeToolTip": "Assets\\Scripts\\ChangeColorButton.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-01T08:26:22.863Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-01T08:26:22.863Z"
             }
           ]
         }

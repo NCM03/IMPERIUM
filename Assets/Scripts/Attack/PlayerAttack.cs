@@ -4,7 +4,6 @@ using System.IO;
 public class PlayerAttack : MonoBehaviour
 {
     public int attackDamage;  // Sát thương của Player (sẽ được load từ dữ liệu)
-
     public float attackRange = 2.0f; // Khoảng cách để tấn công
     public PlayerStamina playerStamina;
     public EnemyHealth enemyHealth;  // Tham chiếu đến sức khỏe của Enemy
