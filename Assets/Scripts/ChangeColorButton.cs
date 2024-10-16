@@ -40,6 +40,6 @@ public class ChangeColorButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene("");
+        //SceneManager.LoadScene("");
     }
 }
