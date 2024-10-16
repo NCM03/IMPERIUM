@@ -21,6 +21,10 @@ public class EnemyHealth : MonoBehaviour
     private void Update()
     {
         UpdateUI();
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     private void UpdateUI()
