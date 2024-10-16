@@ -423,6 +423,7 @@ MonoBehaviour:
   dodgeChance: 0
   healthBar: {fileID: 747280160}
   enemyHealthText: {fileID: 841088476}
+  tutorialManager: {fileID: 1259634417}
 --- !u!114 &311473389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,7 +2574,7 @@ MonoBehaviour:
   moveForwardButton: {fileID: 1239304376}
   moveBackwardButton: {fileID: 595554238}
   buttonManager: {fileID: 43580059}
-  enemyHealth: {fileID: 0}
+  enemyHealth: {fileID: 311473388}
 --- !u!4 &1259634418
 Transform:
   m_ObjectHideFlags: 0
