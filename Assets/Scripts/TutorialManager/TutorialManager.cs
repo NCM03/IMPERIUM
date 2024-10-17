@@ -12,12 +12,14 @@ public class TutorialManager : MonoBehaviour
    // public Button restButton;
     public GameObject buttonManager; // Tham chiếu đến UIButtonManager
     public EnemyHealth enemyHealth;
+    public Button continueButton;
 
 
     private int step = 0;
 
     private void Awake()
     {
+
         // Tắt script UIButtonManager khi khởi chạy
         if (buttonManager != null)
         {
@@ -27,6 +29,11 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
+        // Ẩn nút Continue khi bắt đầu
+        if (continueButton != null)
+        {
+            continueButton.gameObject.SetActive(false);
+        }
         ShowStepOne();
     }
 
@@ -60,6 +67,11 @@ public class TutorialManager : MonoBehaviour
             }else if (step == 6)
             {
                 guidePanel.SetActive(false);
+                // Hiện nút Continue khi đến step 6
+                if (continueButton != null)
+                {
+                    continueButton.gameObject.SetActive(true);
+                }
                 EndTutorial();
             }
         }
@@ -95,7 +107,14 @@ public class TutorialManager : MonoBehaviour
         if (step == 6)
         {
             guidePanel.SetActive(true);
-            guideText.text = "Chúc mừng, bạn đá dành chiến thắng";
+            guideText.text = "Chúc mừng, bạn đã dành chiến thắng";
+
+            // Hiện nút Continue khi đến step 6
+            if (continueButton != null)
+            {
+                continueButton.gameObject.SetActive(true);
+            }
+
         }
        
     }

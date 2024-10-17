@@ -1,29 +1,41 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\",
+  "WorkspaceRootPath": "E:\\Unity\\Test\\git\\IMPERIUM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\assets\\scripts\\attack\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attack\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\projectgit\\imperium\\assets\\scripts\\attack\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attack\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\projectgit\\imperium\\assets\\scripts\\health\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\health\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\assets\\scripts\\changecolorbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\changecolorbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\assets\\scripts\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\index_player\\winnormal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\index_player\\winnormal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\health\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\health\\playerhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\stamina\\playerstamina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\stamina\\playerstamina.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\attack\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attack\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\attack\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\attack\\enemyattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\health\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\health\\enemyhealth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\changecolorbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\changecolorbutton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 20,
           "Children": [
             {
               "$type": "Bookmark",
@@ -95,61 +107,95 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EnemyAttack.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\Attack\\EnemyAttack.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Attack\\EnemyAttack.cs",
-              "ToolTip": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\Attack\\EnemyAttack.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Attack\\EnemyAttack.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Title": "WinNormal.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\index_player\\WinNormal.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\index_player\\WinNormal.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\index_player\\WinNormal.cs",
+              "RelativeToolTip": "Assets\\Scripts\\index_player\\WinNormal.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAgwCUAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T08:48:22.83Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-17T15:05:27.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerStamina.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Stamina\\PlayerStamina.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Stamina\\PlayerStamina.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Stamina\\PlayerStamina.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Stamina\\PlayerStamina.cs",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAAAEgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T14:45:52.926Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "EnemyHealth.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\Health\\EnemyHealth.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Health\\EnemyHealth.cs",
-              "ToolTip": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\Health\\EnemyHealth.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Health\\EnemyHealth.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAJAAAA",
+              "Title": "PlayerHealth.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Health\\PlayerHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Health\\PlayerHealth.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Health\\PlayerHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Health\\PlayerHealth.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAxwBwAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T17:18:16.066Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "PlayerAttack.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\Attack\\PlayerAttack.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Attack\\PlayerAttack.cs",
-              "ToolTip": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\Attack\\PlayerAttack.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Attack\\PlayerAttack.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAADwv2cAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T17:16:18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Player.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\index_player\\Player.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\index_player\\Player.cs",
-              "ToolTip": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\index_player\\Player.cs",
-              "RelativeToolTip": "Assets\\Scripts\\index_player\\Player.cs",
-              "ViewState": "AQIAAHAAAAAAAAAAAAAcwI0AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-10T17:10:49.184Z"
+              "WhenOpened": "2024-10-17T14:38:49.156Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "EnemyAttack.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Attack\\EnemyAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Attack\\EnemyAttack.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Attack\\EnemyAttack.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Attack\\EnemyAttack.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAwAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T08:48:22.83Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EnemyHealth.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Health\\EnemyHealth.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Health\\EnemyHealth.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Health\\EnemyHealth.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Health\\EnemyHealth.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T17:18:16.066Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerAttack.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Attack\\PlayerAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Attack\\PlayerAttack.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\Attack\\PlayerAttack.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Attack\\PlayerAttack.cs",
+              "ViewState": "AQIAAJYAAAAAAAAAAAAqwK8AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T17:16:18Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Player.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\index_player\\Player.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\index_player\\Player.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\index_player\\Player.cs",
+              "RelativeToolTip": "Assets\\Scripts\\index_player\\Player.cs",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAQwIcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-10T17:10:49.184Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "LoadScene.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LoadScene.cs",
-              "ToolTip": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
               "RelativeToolTip": "Assets\\Scripts\\LoadScene.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -157,11 +203,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "ChangeColorButton.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\ChangeColorButton.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\ChangeColorButton.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\ChangeColorButton.cs",
-              "ToolTip": "E:\\Unity\\Test\\ProjectGit\\IMPERIUM\\Assets\\Scripts\\ChangeColorButton.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\ChangeColorButton.cs",
               "RelativeToolTip": "Assets\\Scripts\\ChangeColorButton.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACoAAAAlAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

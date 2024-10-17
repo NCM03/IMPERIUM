@@ -173,7 +173,7 @@ public class PlayerAttack : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
             // Tải tất cả chỉ số từ file
-            attackDamage = data.attack;
+            attackDamage =10 + data.attack;
 
             Debug.Log("Dữ liệu nhân vật đã được load thành công!");
         }

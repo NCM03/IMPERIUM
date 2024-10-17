@@ -22,8 +22,10 @@ public class Player : MonoBehaviour
 	public Text staminaText;
 	public Text dodgeText;
 	public Text skillPointsText;
+    private static bool isFirstTimeRun = true;
 
-	private string saveFilePath;
+
+    private string saveFilePath;
 
     private void Start()
     {
@@ -132,18 +134,29 @@ public class Player : MonoBehaviour
 		Debug.Log("Data Saved Successfully at: " + saveFilePath);
 	}
 
-	// Hàm để gọi khi nhấn nút "Save" và chuyển Scene
-	public void SaveDataButton()
-	{
-		SaveName(); // Gọi để lưu tên trước khi lưu dữ liệu
-		SaveData(); // Gọi để lưu tất cả dữ liệu vào file
+    public void SaveDataButton()
+    {
+        SaveName(); // Gọi để lưu tên trước khi lưu dữ liệu
+        SaveData(); // Gọi để lưu tất cả dữ liệu vào file
 
-		// Chuyển Scene sau khi lưu dữ liệu
-		SceneManager.LoadScene("Lobby");
-	}
+        // Kiểm tra nếu đây là lần đầu tiên chạy trong phiên hiện tại
+        if (isFirstTimeRun)
+        {
+            // Lần đầu, chuyển sang NormalMap và đánh dấu không phải lần đầu nữa
+            SceneManager.LoadScene("NormalMap");
+            isFirstTimeRun = false; // Đánh dấu đã hoàn thành lần đầu tiên trong phiên chạy hiện tại
+        }
+        else
+        {
+            // Các lần tiếp theo, chuyển sang Scene khác (ví dụ: "DifferentMap")
+            SceneManager.LoadScene("Lobby");
+        }
+    }
 
-	// Hàm tải dữ liệu từ file
-	public void LoadData()
+
+
+    // Hàm tải dữ liệu từ file
+    public void LoadData()
 	{
 		if (File.Exists(saveFilePath))
 		{
