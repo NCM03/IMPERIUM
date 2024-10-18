@@ -77,7 +77,6 @@ public class UIButtonManager : MonoBehaviour
         {
             tutorialManager.SetCurrentStep(4);
         }
-        Debug.Log(currentStep);
 
         // Cập nhật trạng thái của các nút
         moveForwardButton.gameObject.SetActive(isPlayerTurn && canMoveForward && hasEnoughStamina && currentStep>=1 && currentStep<3);

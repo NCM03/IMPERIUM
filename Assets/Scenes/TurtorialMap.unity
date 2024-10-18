@@ -2271,6 +2271,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3182577999232126312, guid: ccd44cfc036cb95438047da8b4e34641, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1161914498}
+    - targetCorrespondingSourceObject: {fileID: 3182577999232126312, guid: ccd44cfc036cb95438047da8b4e34641, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1161914504}
+    - targetCorrespondingSourceObject: {fileID: 3182577999232126312, guid: ccd44cfc036cb95438047da8b4e34641, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1161914503}
   m_SourcePrefab: {fileID: 100100000, guid: ccd44cfc036cb95438047da8b4e34641, type: 3}
 --- !u!1 &1161914488 stripped
 GameObject:
@@ -2348,6 +2354,32 @@ MonoBehaviour:
   currentHealth: 0
   healthBar: {fileID: 2105341487}
   palyerHealthText: {fileID: 1290862968}
+--- !u!114 &1161914503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161914488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8141da8dc6bc14947acb3d13c48810f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDefense: 0
+--- !u!114 &1161914504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161914488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4a74a0502443a04c9ef8a92b13070fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerDodge: 0
 --- !u!1 &1239304374
 GameObject:
   m_ObjectHideFlags: 0
@@ -4294,8 +4326,8 @@ SceneRoots:
   - {fileID: 1259634418}
   - {fileID: 1161914487}
   - {fileID: 7898263925474459451}
-  - {fileID: 1065724449}
   - {fileID: 1402298731}
   - {fileID: 353570088}
   - {fileID: 43580061}
   - {fileID: 2051131205}
+  - {fileID: 1065724449}

@@ -8,6 +8,7 @@ public class EnemyNormalAIController : MonoBehaviour
     private EnemyAttack enemyAttack;
     private EnemyStamina enemyStamina;
     private Transform playerTransform;
+    private Transform enemyTransform;
     public float attackRange = 1f;
     public float safeDistance = 1f;
     void Start()
@@ -16,6 +17,8 @@ public class EnemyNormalAIController : MonoBehaviour
         enemyAttack = GetComponent<EnemyAttack>(); // Lấy EnemyAttack
         enemyStamina = GetComponent<EnemyStamina>(); // Lấy EnemyStamina
         playerTransform = GameObject.FindWithTag("Player").transform;
+        enemyTransform = GameObject.FindWithTag("enemy").transform;
+
     }
     public void MakeDecision()
     {
@@ -27,8 +30,7 @@ public class EnemyNormalAIController : MonoBehaviour
         }
         else
         {
-            float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-
+            float distanceToPlayer = Vector3.Distance(enemyTransform.transform.position, playerTransform.position);
             // Nếu enemy đang ở xa player, tiến về phía player
             if (distanceToPlayer > attackRange)
             {
