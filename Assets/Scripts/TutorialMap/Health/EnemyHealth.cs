@@ -35,11 +35,13 @@ public class EnemyHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int amount)
+    public virtual void TakeDamage(int amount)
     {
         currentHealth -= amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);  // Đảm bảo máu không âm
-        UpdateHealthUI();
+        UpdateHealthUI();  // Cập nhật giao diện người dùng (nếu có)
+
+        Debug.Log(gameObject.name + " took " + amount + " damage. Current Health: " + currentHealth);
 
         if (currentHealth <= 0)
         {
@@ -57,9 +59,9 @@ public class EnemyHealth : MonoBehaviour
         healthBar.fillAmount = (float)currentHealth / maxHealth;
     }
 
-    private void Die()
+    protected virtual void Die()
     {
-        Debug.Log("Enemy is dead!");
-        tutorialManager.SetCurrentStep(6);
+        Debug.Log(gameObject.name + " has died.");
+        Destroy(gameObject);  // Phá hủy đối tượng khi boss chết
     }
 }
