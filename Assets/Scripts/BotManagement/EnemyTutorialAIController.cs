@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyNormalAIController : MonoBehaviour
+public class EnemyTutorialAIController : MonoBehaviour
 {
-    private EnemyMovement enemyMovement;
-    private EnemyAttack enemyAttack;
+    private EnemyMovementV2 enemyMovement;
+    private EnemyTutorialAttack enemyAttack;
     private EnemyStamina enemyStamina;
     private Transform playerTransform;
-    public float attackRange = 1f;
-    public float safeDistance = 1f;
+    public float attackRange = 1.7f;
     void Start()
     {
-        enemyMovement = GetComponent<EnemyMovement>();
-        enemyAttack = GetComponent<EnemyAttack>(); // Lấy EnemyAttack
+        enemyMovement = GetComponent<EnemyMovementV2>();
+        enemyAttack = GetComponent<EnemyTutorialAttack>(); // Lấy EnemyAttack
         enemyStamina = GetComponent<EnemyStamina>(); // Lấy EnemyStamina
         playerTransform = GameObject.FindWithTag("Player").transform;
     }
@@ -24,18 +23,16 @@ public class EnemyNormalAIController : MonoBehaviour
         if (enemyStamina.currentStamina < 10)
         {
             enemyMovement.Rest();
+            return;
         }
         else
         {
             float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
-
+            Debug.Log(distanceToPlayer);
             // Nếu enemy đang ở xa player, tiến về phía player
             if (distanceToPlayer > attackRange)
             {
-                if (distanceToPlayer > safeDistance)
-                {
-                    enemyMovement.MoveLeft(); // Di chuyển về phía player
-                }
+                enemyMovement.MoveLeft();
             }
             else
             {

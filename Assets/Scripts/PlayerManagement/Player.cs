@@ -24,11 +24,12 @@ public class Player : MonoBehaviour
 	public Text skillPointsText;
     private static bool isFirstTimeRun = true;
 
-
     private string saveFilePath;
 
     private void Start()
     {
+        // Thêm các listener cho các nút
+        
         // Lấy đường dẫn thư mục lưu trữ dựa trên Application.persistentDataPath
         string directoryPath = Application.persistentDataPath + "/DB";
 
