@@ -389,57 +389,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4659654636633523572, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
   m_PrefabInstance: {fileID: 7898263925474459451}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &311473387
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311473379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee9cadf3814967c499d5d06553ba4ddd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  staminaBar: {fileID: 1282712517}
-  maxStamina: 100
-  currentStamina: 0
-  enemyStaminaText: {fileID: 813216729}
---- !u!114 &311473388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311473379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27c7a9b7648f3a540ac28d9ff803cf75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  defense: 0
-  currentHealth: 0
-  dodgeChance: 0
-  healthBar: {fileID: 747280160}
-  enemyHealthText: {fileID: 841088476}
-  tutorialManager: {fileID: 1259634417}
---- !u!114 &311473389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 311473379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 254e3b5a5d630314582c5f37a9c4fe0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 20
-  attackRange: 1
-  playerHealth: {fileID: 1161914498}
-  enemyStamina: {fileID: 311473387}
 --- !u!114 &311473395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +419,31 @@ MonoBehaviour:
   moveDuration: 0.5
   leftBoundary: 0
   rightBoundary: 0
+--- !u!114 &311473403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311473379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c91e2af2079f3f34d97f1b7ce69f6f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
+  maxStamina: 0
+  currentStamina: 0
+  defense: 0
+  dodgeChance: 0
+  attackDamage: 0
+  attackRange: 0
+  playerHealth: {fileID: 1161914498}
+  healthBar: {fileID: 747280160}
+  staminaBar: {fileID: 1957737809}
+  enemyHealthText: {fileID: 841088476}
+  enemyStaminaText: {fileID: 813216729}
 --- !u!1 &344014421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,7 +2483,7 @@ MonoBehaviour:
   attackDamage: 10
   attackRange: 2
   playerStamina: {fileID: 1161914496}
-  enemyHealth: {fileID: 311473388}
+  enemyHealth: {fileID: 311473403}
 --- !u!114 &1161914498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2815,7 +2789,7 @@ MonoBehaviour:
   moveForwardButton: {fileID: 1239304376}
   moveBackwardButton: {fileID: 595554238}
   buttonManager: {fileID: 43580059}
-  enemyHealth: {fileID: 311473388}
+  enemyHealth: {fileID: 0}
   continueButton: {fileID: 1322470024}
 --- !u!4 &1259634418
 Transform:
@@ -4452,26 +4426,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1491830691753840302, guid: 071754885792d124493482c708470a8e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.032238863
-      objectReference: {fileID: 0}
-    - target: {fileID: 2799966672981411222, guid: 071754885792d124493482c708470a8e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.0151675325
-      objectReference: {fileID: 0}
-    - target: {fileID: 4907287287030877551, guid: 071754885792d124493482c708470a8e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.014801888
-      objectReference: {fileID: 0}
-    - target: {fileID: 7915578982222199025, guid: 071754885792d124493482c708470a8e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99983865
-      objectReference: {fileID: 0}
-    - target: {fileID: 7915578982222199025, guid: 071754885792d124493482c708470a8e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.017968528
-      objectReference: {fileID: 0}
     - target: {fileID: 17036540564456538, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -4920,25 +4874,39 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1491830691753840302, guid: 071754885792d124493482c708470a8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.032238863
+      objectReference: {fileID: 0}
+    - target: {fileID: 2799966672981411222, guid: 071754885792d124493482c708470a8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0151675325
+      objectReference: {fileID: 0}
+    - target: {fileID: 4907287287030877551, guid: 071754885792d124493482c708470a8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.014801888
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915578982222199025, guid: 071754885792d124493482c708470a8e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99983865
+      objectReference: {fileID: 0}
+    - target: {fileID: 7915578982222199025, guid: 071754885792d124493482c708470a8e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.017968528
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5396791059238260207, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 311473387}
-    - targetCorrespondingSourceObject: {fileID: 5396791059238260207, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 311473389}
-    - targetCorrespondingSourceObject: {fileID: 5396791059238260207, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 311473388}
-    - targetCorrespondingSourceObject: {fileID: 5396791059238260207, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 311473395}
     - targetCorrespondingSourceObject: {fileID: 5396791059238260207, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 311473399}
+    - targetCorrespondingSourceObject: {fileID: 5396791059238260207, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 311473403}
   m_SourcePrefab: {fileID: 100100000, guid: f17db29ccfeea8044b925a28aeddaebd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

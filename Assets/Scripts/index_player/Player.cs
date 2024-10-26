@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         if (isFirstTimeRun)
         {
             // Lần đầu, chuyển sang NormalMap và đánh dấu không phải lần đầu nữa
-            SceneManager.LoadScene("NormalMap");
+            SceneManager.LoadScene("TurtorialMap");
             isFirstTimeRun = false; // Đánh dấu đã hoàn thành lần đầu tiên trong phiên chạy hiện tại
         }
         else
