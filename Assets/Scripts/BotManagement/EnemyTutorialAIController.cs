@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyNormalAIController : MonoBehaviour
+public class EnemyTutorialAIController : MonoBehaviour
 {
-    private EnemyMovement enemyMovement;
+    private EnemyTutorialMovement enemyMovement;
     private EnemyAttack enemyAttack;
     private EnemyStamina enemyStamina;
     private Transform playerTransform;
@@ -13,7 +13,7 @@ public class EnemyNormalAIController : MonoBehaviour
     public float safeDistance = 1f;
     void Start()
     {
-        enemyMovement = GetComponent<EnemyMovement>();
+        enemyMovement = GetComponent<EnemyTutorialMovement>();
         enemyAttack = GetComponent<EnemyAttack>(); // Lấy EnemyAttack
         enemyStamina = GetComponent<EnemyStamina>(); // Lấy EnemyStamina
         playerTransform = GameObject.FindWithTag("Player").transform;
