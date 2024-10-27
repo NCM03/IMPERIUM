@@ -38,9 +38,9 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         float distance = Vector3.Distance(transform.position, enemyTransform.position);
-        if (distance <= attackRange && tutorialManager.GetCurrentStep() == 2)
+        if (distance <= attackRange && tutorialManager.GetCurrentStep() == 3)
         {
-            tutorialManager.SetCurrentStep(3);
+            tutorialManager.SetCurrentStep(4);
         }
 
         if (enemyHealth != null && enemyHealth.currentHealth <= enemyHealth.maxHealth * 0.2f && tutorialManager.GetCurrentStep() == 4)

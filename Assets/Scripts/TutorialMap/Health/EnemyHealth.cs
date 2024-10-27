@@ -11,6 +11,9 @@ public class EnemyHealth : MonoBehaviour
     public Image healthBar;
     public TextMeshProUGUI enemyHealthText;
     public TutorialManager tutorialManager;
+    private Animator animator;
+    private string triggerBossLose = "Bosslose";
+    private string triggerBossWin = "BossWin";
 
     private void Start()
     {
@@ -62,6 +65,7 @@ public class EnemyHealth : MonoBehaviour
     protected virtual void Die()
     {
         Debug.Log(gameObject.name + " has died.");
-        Destroy(gameObject);  // Phá hủy đối tượng khi boss chết
+
+        tutorialManager.SetCurrentStep(6);
     }
 }

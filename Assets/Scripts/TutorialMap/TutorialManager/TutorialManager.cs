@@ -90,11 +90,11 @@ public class TutorialManager : MonoBehaviour
     public void SetCurrentStep(int newStep)
     {
         step = newStep;
-        if (step == 3)
+        if (step == 4)
         {
             guidePanel.SetActive(true);
             guideText.text = "Bạn đã đến gần kẻ thù, hãy ấn nút tấn công để tấn công nó!";
-        }if (step == 4)
+        }if (step == 3)
         {
             guidePanel.SetActive(true);
             guideText.text = "Khi thể lực xuống dưới 50%, bạn có thể ấn để hồi thể lực cũng như 5% máu đã mất";
