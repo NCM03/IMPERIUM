@@ -8,10 +8,9 @@ public class TutorialManager : MonoBehaviour
     public GameObject guidePanel;
     public Button moveForwardButton;
     public Button moveBackwardButton;
-   // public Button attackButton;
-   // public Button restButton;
+    public SceneController sceneController;
     public GameObject buttonManager; // Tham chiếu đến UIButtonManager
-    public EnemyHealth enemyHealth;
+    public EnemyTutorialHealth enemyHealth;
     public Button continueButton;
 
 
@@ -79,7 +78,7 @@ public class TutorialManager : MonoBehaviour
 
     public void EndTutorial()
     {
-        //Nơi chuyển sang Scene khác
+        sceneController.NextScene();
     }
 
     public int GetCurrentStep()

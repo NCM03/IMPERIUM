@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 
-public class TurnManager : MonoBehaviour
+public class TurnNormalManager : MonoBehaviour
 {
     public PlayerMovementV2 playerMovement;
-    public EnemyTutorialAIController enemyAIController;
     public PlayerHealth playerHealth;
-    public EnemyHealth enemyHealth;
-    public bool isPlayerTurn = true;
-    private bool isEnemyTurn = false;  // Đảm bảo mỗi lượt chỉ được xử lý một lần
+    public EnemyNormalAIController enemyNormalAIController;
+    public EnemyStats enemyNormalHealth;
+    //public SceneController sceneController;
 
+    public bool isPlayerTurn = true;
+    private bool isEnemyTurn = false;
 
     void Start()
     {
@@ -33,16 +34,16 @@ public class TurnManager : MonoBehaviour
         isPlayerTurn = false;
         isEnemyTurn = true;  // Đặt cờ đang xử lý lượt
         Debug.Log("Player's turn ended, AI's turn starting...");
-  
+
         Invoke(nameof(StartEnemyTurn), 1f); // Chuyển lượt cho AI
-        
+
     }
 
     void StartEnemyTurn()
     {
         if (CheckGameOver() || isEnemyTurn == false) return; // Kiểm tra nếu đang xử lý lượt hoặc đã GameOver
-        Debug.Log("AI's turn started");
-        enemyAIController.MakeDecision(); // Gọi hành động của AI
+        Debug.Log("AI Normal's turn started");
+        enemyNormalAIController.MakeDecision(); // AI cho map Normal
         Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI
     }
 
@@ -50,7 +51,7 @@ public class TurnManager : MonoBehaviour
     {
         if (CheckGameOver()) return; // Kiểm tra GameOver sau lượt của AI
         isEnemyTurn = false;  // Đặt lại cờ khi lượt kết thúc
-        Debug.Log("AI's turn ended, Player's turn starting...");
+        Debug.Log("AI Normal's turn ended, Player's turn starting...");
         StartPlayerTurn(); // Quay lại lượt của người chơi
     }
 
@@ -62,11 +63,24 @@ public class TurnManager : MonoBehaviour
             Debug.Log("Player is dead. Game Over!");
             return true;
         }
-        if (enemyHealth.currentHealth <= 0)
-        {
-            Debug.Log("Enemy is dead. Game Over!");
-            return true;
-        }
+
+        //if (player.IsFirstTimeRun && player != null)
+        //{
+        //    if (enemyTutorialHealth.currentHealth <= 0)
+        //    {
+        //        Debug.Log("Enemy is dead. Game Over!");
+        //        return true;
+        //    }
+        //}
+        //else
+        //{
+        //    if (enemyNormalHealth.hp <= 0 && enemyNormalHealth != null)
+        //    {
+        //        Debug.Log("Enemy is dead. Game Over!");
+        //        return true;
+        //    }
+        //}
+
         return false;
     }
 }

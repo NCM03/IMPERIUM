@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyTutorialHealth : MonoBehaviour
 {
     public int maxHealth = 100;
     public int defense;
@@ -11,9 +11,6 @@ public class EnemyHealth : MonoBehaviour
     public Image healthBar;
     public TextMeshProUGUI enemyHealthText;
     public TutorialManager tutorialManager;
-    private Animator animator;
-    private string triggerBossLose = "Bosslose";
-    private string triggerBossWin = "BossWin";
 
     private void Start()
     {

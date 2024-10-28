@@ -5,7 +5,7 @@ public class EnemyTutorialMovement : MonoBehaviour
     public float moveDistance = 0.5f;
     public float leftBoundary;
     public float rightBoundary;
-    private EnemyStamina enemyStamina;
+    private EnemyTutorialStamina enemyStamina;
     private Vector3 targetPosition;  // Vị trí đích cần di chuyển tới
     private bool isMoving = false;
     private float moveSpeed = 2f;  // Tốc độ di chuyển mượt
@@ -17,7 +17,7 @@ public class EnemyTutorialMovement : MonoBehaviour
     {
         leftBoundary = -((1080 / 2) / 100f);
         rightBoundary = ((1080 / 2) / 100f);
-        enemyStamina = GetComponent<EnemyStamina>();
+        enemyStamina = GetComponent<EnemyTutorialStamina>();
         animator = GetComponent<Animator>();
 
         // Giới hạn vị trí enemy ban đầu trong phạm vi map

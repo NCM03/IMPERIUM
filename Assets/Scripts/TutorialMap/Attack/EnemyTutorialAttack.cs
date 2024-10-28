@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class EnemyAttack : MonoBehaviour
+public class EnemyTutorialAttack : MonoBehaviour
 {
     public int attackDamage = 10;  // Sát thương của Enemy
     public float attackRange = 2.0f;
     public PlayerHealth playerHealth;  // Tham chiếu đến sức khỏe của Player
-    public EnemyStamina enemyStamina;
+    public EnemyTutorialStamina enemyStamina;
     private Animator animator;
     private Transform playerTransform;
     private string triggerAttackWeak = "BossNormalCut";

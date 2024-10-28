@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyStamina : MonoBehaviour
+public class EnemyTutorialStamina : MonoBehaviour
 {
     public Image staminaBar;  // Tham chiếu đến thanh thể lực UI
     public float maxStamina = 100f; // Thể lực tối đa
