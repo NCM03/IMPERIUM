@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyTutorialAIController : MonoBehaviour
 {
     private EnemyTutorialMovement enemyMovement;
-    private EnemyAttack enemyAttack;
-    private EnemyStamina enemyStamina;
+    private EnemyTutorialAttack enemyAttack;
+    private EnemyTutorialStamina enemyStamina;
     private Transform playerTransform;
     private Transform enemyTransform;
     public float attackRange = 1f;
@@ -14,16 +14,14 @@ public class EnemyTutorialAIController : MonoBehaviour
     void Start()
     {
         enemyMovement = GetComponent<EnemyTutorialMovement>();
-        enemyAttack = GetComponent<EnemyAttack>(); // Lấy EnemyAttack
-        enemyStamina = GetComponent<EnemyStamina>(); // Lấy EnemyStamina
+        enemyAttack = GetComponent<EnemyTutorialAttack>(); // Lấy EnemyAttack
+        enemyStamina = GetComponent<EnemyTutorialStamina>(); // Lấy EnemyStamina
         playerTransform = GameObject.FindWithTag("Player").transform;
         enemyTransform = GameObject.FindWithTag("enemy").transform;
 
     }
     public void MakeDecision()
     {
-        EnemyStamina enemyStamina = GetComponent<EnemyStamina>();
-
         if (enemyStamina.currentStamina < 10)
         {
             enemyMovement.Rest();

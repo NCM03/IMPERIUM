@@ -9,7 +9,6 @@ public class PlayerStamina : MonoBehaviour
     public float maxStamina; // Thể lực tối đa
     public float currentStamina;   // Thể lực hiện tại
     public TextMeshProUGUI playerStaminaText;
-
     private string saveFilePath;
 
     void Start()
@@ -82,7 +81,6 @@ public class PlayerStamina : MonoBehaviour
             // Thiết lập maxStamina bằng 100 + giá trị stamina từ file JSON
             maxStamina = 100 + data.stamina;
             currentStamina = maxStamina; // Ban đầu giá trị thể lực hiện tại là tối đa
-
             Debug.Log("Player Stamina loaded successfully: " + currentStamina);
         }
         else

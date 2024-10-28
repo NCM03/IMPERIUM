@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
 	public Text skillPointsText;
     private static bool isFirstTimeRun = true;
 
+    //Logic Hiện các nút theo tutorial hay theo đánh thật
+    public UIButtonTutorialManager tutorialManager;
+    public UIButtonManagement mainManager;
 
     private string saveFilePath;
 
@@ -44,6 +47,17 @@ public class Player : MonoBehaviour
 
         LoadData();
         UpdateUI();
+
+        //if (isFirstTimeRun)
+        //{
+        //    tutorialManager.gameObject.SetActive(true);
+        //    mainManager.gameObject.SetActive(false);
+        //}
+        //else
+        //{
+        //    tutorialManager.gameObject.SetActive(false);
+        //    mainManager.gameObject.SetActive(true);
+        //}
     }
 
     // Hàm lưu tên
@@ -127,7 +141,7 @@ public class Player : MonoBehaviour
 			stamina = this.stamina,
 			dodge = this.dodge,
 			skillPoints = this.skillPoints
-		};
+        };
 
 		string json = JsonUtility.ToJson(data, true);
 		File.WriteAllText(saveFilePath, json);
@@ -139,19 +153,19 @@ public class Player : MonoBehaviour
         SaveName(); // Gọi để lưu tên trước khi lưu dữ liệu
         SaveData(); // Gọi để lưu tất cả dữ liệu vào file
 
-        // Kiểm tra nếu đây là lần đầu tiên chạy trong phiên hiện tại
-        if (isFirstTimeRun)
-        {
-            // Lần đầu, chuyển sang NormalMap và đánh dấu không phải lần đầu nữa
-            SceneManager.LoadScene("TurtorialMap");
-            isFirstTimeRun = false; // Đánh dấu đã hoàn thành lần đầu tiên trong phiên chạy hiện tại
-        }
-        else
-        {
+		// Kiểm tra nếu đây là lần đầu tiên chạy trong phiên hiện tại
+		if (isFirstTimeRun)
+		{
+			// Lần đầu, chuyển sang NormalMap và đánh dấu không phải lần đầu nữa
+			SceneManager.LoadScene("TurtorialMap");
+			isFirstTimeRun = false; // Đánh dấu đã hoàn thành lần đầu tiên trong phiên chạy hiện tại
+		}
+		else
+		{
             // Các lần tiếp theo, chuyển sang Scene khác (ví dụ: "DifferentMap")
             SceneManager.LoadScene("Lobby");
-        }
-    }
+		}
+	}
 
 
 
@@ -171,8 +185,8 @@ public class Player : MonoBehaviour
 			this.dodge = data.dodge;
 			this.skillPoints = data.skillPoints;
 
-			// Cập nhật InputField với tên đã lưu
-			if (nameInputField != null) // Kiểm tra để tránh lỗi nếu InputField không tồn tại trong Scene mới
+            // Cập nhật InputField với tên đã lưu
+            if (nameInputField != null) // Kiểm tra để tránh lỗi nếu InputField không tồn tại trong Scene mới
 			{
 				nameInputField.text = playerName;
 			}
@@ -204,8 +218,8 @@ public class Player : MonoBehaviour
 		dodge = 1;
 		skillPoints = 9;
 
-		// Cập nhật giao diện
-		if (nameInputField != null) // Kiểm tra xem InputField có được tham chiếu không
+        // Cập nhật giao diện
+        if (nameInputField != null) // Kiểm tra xem InputField có được tham chiếu không
 		{
 			nameInputField.text = ""; // Đặt lại tên trong InputField về chuỗi rỗng
 		}
@@ -225,5 +239,5 @@ public class Player : MonoBehaviour
 		public int stamina;
 		public int dodge;
 		public int skillPoints;
-	}
+    }
 }

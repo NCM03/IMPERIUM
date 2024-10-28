@@ -14,7 +14,6 @@ public class PlayerMovementV2 : MonoBehaviour
     private Vector3 targetPosition;
     private bool isMoving = false;
     public GameObject player;  // Đối tượng nhân vật
-    public TurnManager turnManager;
     public Transform enemyTransform;
     private Rigidbody2D rb;
 
@@ -55,7 +54,6 @@ public class PlayerMovementV2 : MonoBehaviour
             if (Vector3.Distance(transform.position, targetPosition) < 0.01f)
             {
                 isMoving = false;
-                turnManager.EndPlayerTurn();
             }
         }
     }

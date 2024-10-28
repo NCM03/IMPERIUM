@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class PlayerAttack : MonoBehaviour
 {
     public int attackDamage;  // Sát thương của Player (sẽ được load từ dữ liệu)
     public float attackRange = 2.0f; // Khoảng cách để tấn công
     public PlayerStamina playerStamina;
-    public EnemyHealth enemyHealth;  // Tham chiếu đến sức khỏe của Enemy
+    public EnemyTutorialHealth enemyHealth;
     private Transform enemyTransform;
     private Animator animator;
     private string triggerAttackWeak = "Cut_Right";
@@ -28,6 +29,9 @@ public class PlayerAttack : MonoBehaviour
         LoadPlayerData();
         animator = GetComponent<Animator>();
         tutorialManager = FindObjectOfType<TutorialManager>();
+        enemyHealth = FindObjectOfType<EnemyTutorialHealth>();
+        playerStamina = FindObjectOfType<PlayerStamina>();
+        enemyTransform = GameObject.FindWithTag("enemy").transform;
         // Kiểm tra xem Enemy đã được gán chưa
         if (enemyHealth != null)
         {
@@ -37,45 +41,41 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-        float distance = Vector3.Distance(transform.position, enemyTransform.position);
-        if (distance <= attackRange && tutorialManager.GetCurrentStep() == 3)
+        if (enemyTransform != null && this.gameObject.scene.name == "TurtorialMap")
         {
-            tutorialManager.SetCurrentStep(4);
-        }
+            float distance = Vector3.Distance(transform.position, enemyTransform.position);
+            if (distance <= attackRange && tutorialManager.GetCurrentStep() == 3)
+            {
+                tutorialManager.SetCurrentStep(4);
+            }
 
-        if (enemyHealth != null && enemyHealth.currentHealth <= enemyHealth.maxHealth * 0.2f && tutorialManager.GetCurrentStep() == 4)
-        {
-            tutorialManager.SetCurrentStep(5);
-        }
+            if (enemyHealth != null && enemyHealth.currentHealth <= enemyHealth.maxHealth * 0.2f && tutorialManager.GetCurrentStep() == 4)
+            {
+                tutorialManager.SetCurrentStep(5);
+            }
+        }    
     }
 
 
     // Hàm tấn công yếu
     public void AttackWeak()
     {
+        Debug.Log(enemyHealth);
+        Debug.Log(playerStamina.currentStamina);
         if (enemyHealth != null && playerStamina.currentStamina > 0)
         {
-            float distance = Vector3.Distance(transform.position, enemyTransform.position);
-            Debug.Log("Khoảng cách hiện tại là: " + distance);
-            if (distance <= attackRange)
+            animator.SetTrigger(triggerAttackWeak);
+            // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+            if (!enemyHealth.CanDodge())
             {
-                animator.SetTrigger(triggerAttackWeak);
-                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyHealth.CanDodge())
-                {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
-                    enemyHealth.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
-                }
-                else
-                {
-                    Debug.Log("Enemy dodged the attack!");
-                }
+                // Kẻ địch không né được, tiến hành tấn công
+                int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
+                enemyHealth.TakeDamage(10 + damageDealt);
+                Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
             }
             else
             {
-                Debug.Log("Player attempted to attack, but is too far away.");
+                Debug.Log("Enemy dodged the attack!");
             }
 
             // Trừ stamina sau khi tấn công
@@ -93,27 +93,18 @@ public class PlayerAttack : MonoBehaviour
     {
         if (enemyHealth != null && playerStamina.currentStamina > 0)
         {
-            float distance = Vector3.Distance(transform.position, enemyTransform.position);
-            Debug.Log("Khoảng cách hiện tại là: " + distance);
-            if (distance <= attackRange)
+            animator.SetTrigger(triggerAttackNormal);
+            // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+            if (!enemyHealth.CanDodge())
             {
-                animator.SetTrigger(triggerAttackNormal);
-                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyHealth.CanDodge())
-                {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
-                    enemyHealth.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
-                }
-                else
-                {
-                    Debug.Log("Enemy dodged the attack!");
-                }
+                // Kẻ địch không né được, tiến hành tấn công
+                int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
+                enemyHealth.TakeDamage(10 + damageDealt);
+                Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
             }
             else
             {
-                Debug.Log("Player attempted to attack, but is too far away.");
+                Debug.Log("Enemy dodged the attack!");
             }
 
             // Trừ stamina sau khi tấn công
@@ -131,27 +122,19 @@ public class PlayerAttack : MonoBehaviour
     {
         if (enemyHealth != null && playerStamina.currentStamina > 0)
         {
-            float distance = Vector3.Distance(transform.position, enemyTransform.position);
-            Debug.Log("Khoảng cách hiện tại là: " + distance);
-            if (distance <= attackRange)
+
+            animator.SetTrigger(triggerAttackStrong);
+            // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+            if (!enemyHealth.CanDodge())
             {
-                animator.SetTrigger(triggerAttackStrong);
-                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyHealth.CanDodge())
-                {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
-                    enemyHealth.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
-                }
-                else
-                {
-                    Debug.Log("Enemy dodged the attack!");
-                }
+                // Kẻ địch không né được, tiến hành tấn công
+                int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
+                enemyHealth.TakeDamage(10 + damageDealt);
+                Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
             }
             else
             {
-                Debug.Log("Player attempted to attack, but is too far away.");
+                Debug.Log("Enemy dodged the attack!");
             }
 
             // Trừ stamina sau khi tấn công
@@ -173,7 +156,7 @@ public class PlayerAttack : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
             // Tải tất cả chỉ số từ file
-            attackDamage =10 + data.attack;
+            attackDamage = 10 + data.attack;
 
             Debug.Log("Dữ liệu nhân vật đã được load thành công!");
         }

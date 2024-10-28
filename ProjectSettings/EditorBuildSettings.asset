@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TurtorialMap.unity
     guid: ec1eacf00de1dd34cae337d8784eb303
+  - enabled: 1
+    path: Assets/Scenes/NormalMap.unity
+    guid: b7c715f9f18312f4f8783caae38cdc36
   m_configObjects: {}
