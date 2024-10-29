@@ -31,17 +31,31 @@ public class Boss1NormalManagement : MonoBehaviour
         UpdateUI();
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         if (enemyStaminaText != null)
         {
-            enemyStaminaText.text = $"{baseBoss.currentStamina:F0}/{baseBoss.stamina:F0}";
+            enemyStaminaText.text = $"{baseBoss.currentStamina}/{baseBoss.stamina}";
         }
 
         if (enemyHealthText != null)
         {
-            enemyHealthText.text = $"{baseBoss.currentHp:F0}/{baseBoss.hp:F0}";
+            enemyHealthText.text = $"{baseBoss.currentHp}/{baseBoss.hp}";
         }
+
+        UpdateHealthBar();
+        UpdateStaminaBar();
+
+        Debug.Log($"UpdateUI is called - Current HP: {baseBoss.currentHp}, Max HP: {baseBoss.hp}, Current Stamina: {baseBoss.currentStamina}, Max Stamina: {baseBoss.stamina}");
+    }
+
+
+    public virtual void TakeDamage(int amount)
+    {
+        baseBoss.currentHp -= amount;
+        baseBoss.currentHp = Mathf.Clamp(baseBoss.currentHp, 0, baseBoss.hp);  // Đảm bảo máu không âm
+        Debug.Log("After taking damage, Current HP: " + baseBoss.currentHp);
+        UpdateUI();  // Cập nhật giao diện người dùng
     }
 
     public void Rest()
@@ -52,31 +66,20 @@ public class Boss1NormalManagement : MonoBehaviour
     private void RegainStamina(int amount)
     {
         baseBoss.currentStamina = Mathf.Min(baseBoss.currentStamina + amount, baseBoss.stamina);
-        UpdateStaminaBar();
-    }
-    public virtual void TakeDamage(int amount)
-    {
-        baseBoss.currentHp -= amount;
-        baseBoss.currentHp = Mathf.Clamp(baseBoss.currentHp, 0, baseBoss.hp);  // Đảm bảo máu không âm
-        UpdateUI();  // Cập nhật giao diện người dùng (nếu có)
-
-        Debug.Log(gameObject.name + " took " + amount + " damage. Current Health: " + baseBoss.currentHp);
-
-        if (baseBoss.currentHp <= 0)
-        {
-            //Die();
-        }
+        Debug.Log("After resting, Current Stamina: " + baseBoss.currentStamina);
+        UpdateUI();  // Cập nhật giao diện người dùng
     }
     public void ReduceStamina(int amount)
     {
         baseBoss.currentStamina = Mathf.Max(baseBoss.currentStamina - amount, 0);
-        UpdateStaminaBar();
+        UpdateUI();  // Cập nhật giao diện người dùng
     }
     private void UpdateStaminaBar()
     {
         if (staminaBar != null)
         {
-            staminaBar.fillAmount = baseBoss.currentStamina / baseBoss.stamina;
+            staminaBar.fillAmount = (float)baseBoss.currentStamina / baseBoss.stamina;
+            Debug.Log("Stamina Bar fillAmount: " + staminaBar.fillAmount);
         }
     }
 
@@ -84,7 +87,8 @@ public class Boss1NormalManagement : MonoBehaviour
     {
         if (healthBar != null)
         {
-            healthBar.fillAmount = baseBoss.currentHp / baseBoss.hp;
+            healthBar.fillAmount = (float)baseBoss.currentHp / baseBoss.hp;
+            Debug.Log("Health Bar fillAmount: " + healthBar.fillAmount);
         }
     }
 }

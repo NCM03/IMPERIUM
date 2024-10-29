@@ -8,8 +8,8 @@ public class BaseBoss
     public int hp = 200;
     public int stamina = 200;
     public int dodge = 10;
-    public int currentStamina;
-    public int currentHp;
+    public int currentStamina = 200;
+    public int currentHp = 200;
     public void StartBoss1()
     {
         currentStamina = stamina;

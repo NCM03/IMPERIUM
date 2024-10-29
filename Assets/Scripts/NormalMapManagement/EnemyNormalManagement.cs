@@ -32,7 +32,7 @@ public class EnemyNormalManagement : MonoBehaviour
         UpdateUI();
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         if (enemyStaminaText != null)
         {
@@ -43,6 +43,8 @@ public class EnemyNormalManagement : MonoBehaviour
         {
             enemyHealthText.text = $"{stats.currentHp:F0}/{stats.hp:F0}";
         }
+        UpdateHealthBar();
+        UpdateStaminaBar();
     }
 
     public void Rest()
@@ -53,27 +55,21 @@ public class EnemyNormalManagement : MonoBehaviour
     private void RegainStamina(int amount)
     {
         stats.currentStamina = Mathf.Min(stats.currentStamina + amount, stats.stamina);
-        UpdateStaminaBar();
+        Debug.Log("After resting, Current Stamina: " + stats.currentStamina);
+        UpdateUI();  // Cập nhật giao diện người dùng
     }
-
     public void ReduceStamina(int amount)
     {
         stats.currentStamina = Mathf.Max(stats.currentStamina - amount, 0);
-        UpdateStaminaBar();
+        UpdateUI();  // Cập nhật giao diện người dùng
     }
 
     public virtual void TakeDamage(int amount)
     {
         stats.currentHp -= amount;
         stats.currentHp = Mathf.Clamp(stats.currentHp, 0, stats.hp);  // Đảm bảo máu không âm
-        UpdateUI();  // Cập nhật giao diện người dùng (nếu có)
-
-        Debug.Log(gameObject.name + " took " + amount + " damage. Current Health: " + stats.currentHp);
-
-        if (stats.currentHp <= 0)
-        {
-            Die();
-        }
+        Debug.Log("After taking damage, Current HP: " + stats.currentHp);
+        UpdateUI();  // Cập nhật giao diện người dùng
     }
 
     private void Die()
@@ -86,7 +82,8 @@ public class EnemyNormalManagement : MonoBehaviour
     {
         if (staminaBar != null)
         {
-            staminaBar.fillAmount = stats.currentStamina / stats.stamina;
+            staminaBar.fillAmount = (float)stats.currentStamina / stats.stamina;
+            Debug.Log("Stamina Bar fillAmount: " + staminaBar.fillAmount);
         }
     }
 
@@ -94,7 +91,8 @@ public class EnemyNormalManagement : MonoBehaviour
     {
         if (healthBar != null)
         {
-            healthBar.fillAmount = stats.currentHp / stats.hp;
+            healthBar.fillAmount = (float)stats.currentHp / stats.hp;
+            Debug.Log("Health Bar fillAmount: " + healthBar.fillAmount);
         }
     }
 }

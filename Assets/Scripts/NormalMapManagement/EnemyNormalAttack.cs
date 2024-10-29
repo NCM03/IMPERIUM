@@ -26,6 +26,11 @@ public class EnemyNormalAttack : MonoBehaviour
         {
             playerTransform = playerHealth.transform;
         }
+        if (enemyNormalManagement != null)
+        {
+            enemyNormalManagement.stats.AssignRandomStrength();
+            enemyNormalManagement.UpdateUI(); // Gọi UpdateUI qua boss1NormalManagement
+        }
     }
 
     // Hàm tấn công yếu

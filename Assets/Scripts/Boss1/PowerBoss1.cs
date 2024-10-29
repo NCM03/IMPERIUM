@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PowerBoss1 : MonoBehaviour
 {
     public float attackRange = 2.0f; // Khoảng cách để tấn công
-    private BaseBoss baseboss = new BaseBoss();
     public PlayerHealth playerHealth;
 
     public Boss1NormalManagement boss1NormalManagement;
@@ -25,7 +24,12 @@ public class PowerBoss1 : MonoBehaviour
         {
             playerTransform = playerHealth.transform;
         }
-        baseboss.StartBoss1();
+
+        if (boss1NormalManagement != null)
+        {
+            boss1NormalManagement.baseBoss.StartBoss1();
+            boss1NormalManagement.UpdateUI(); // Gọi UpdateUI qua boss1NormalManagement
+        }
     }
 
     // Hàm tấn công yếu
@@ -34,9 +38,9 @@ public class PowerBoss1 : MonoBehaviour
         if (playerHealth != null && boss1NormalManagement.baseBoss.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackWeak);
-            if (!baseboss.CanDodge(baseboss.attack))
+            if (!boss1NormalManagement.baseBoss.CanDodge(boss1NormalManagement.baseBoss.attack))
             {
-                int damageDealt = Mathf.Max(baseboss.attack - baseboss.defense, 0);
+                int damageDealt = Mathf.Max(boss1NormalManagement.baseBoss.attack - boss1NormalManagement.baseBoss.defense, 0);
                 playerHealth.TakeDamage(damageDealt);
                 Debug.Log("Enemy performed a Weak Attack and dealt " + (damageDealt) + " damage!");
             }
@@ -59,9 +63,9 @@ public class PowerBoss1 : MonoBehaviour
         if (playerHealth != null && boss1NormalManagement.baseBoss.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackNormal);
-            if (!baseboss.CanDodge(baseboss.attack))
+            if (!boss1NormalManagement.baseBoss.CanDodge(boss1NormalManagement.baseBoss.attack))
             {
-                int damageDealt = Mathf.Max(baseboss.attack - baseboss.defense, 0);
+                int damageDealt = Mathf.Max(boss1NormalManagement.baseBoss.attack - boss1NormalManagement.baseBoss.defense, 0);
                 playerHealth.TakeDamage(damageDealt);
                 Debug.Log("Enemy performed a Normal Attack and dealt " + (damageDealt) + " damage!");
             }
@@ -84,9 +88,9 @@ public class PowerBoss1 : MonoBehaviour
         if (playerHealth != null && boss1NormalManagement.baseBoss.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackStrong);
-            if (!baseboss.CanDodge(baseboss.attack))
+            if (!boss1NormalManagement.baseBoss.CanDodge(boss1NormalManagement.baseBoss.attack))
             {
-                int damageDealt = Mathf.Max(baseboss.attack - baseboss.defense, 0);
+                int damageDealt = Mathf.Max(boss1NormalManagement.baseBoss.attack - boss1NormalManagement.baseBoss.defense, 0);
                 playerHealth.TakeDamage(damageDealt);
                 Debug.Log("Enemy performed a Strong Attack and dealt " + (damageDealt) + " damage!");
             }
@@ -102,5 +106,4 @@ public class PowerBoss1 : MonoBehaviour
             boss1NormalManagement.Rest();
         }
     }
-
 }
