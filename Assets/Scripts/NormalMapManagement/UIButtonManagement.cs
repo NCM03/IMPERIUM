@@ -15,6 +15,7 @@ public class UIButtonManagement : MonoBehaviour
     private PlayerAttack playerAttack;
     private Transform playerTransform;
     private EnemyMovement enemyMovement;
+    private BossMovement bossMovement;
     public float leftBoundary;
     public float rightBoundary;
     public float Vitrikedich = 1f;
@@ -30,7 +31,8 @@ public class UIButtonManagement : MonoBehaviour
         playerStamina = playerMovement.GetComponent<PlayerStamina>();
         playerAttack = FindObjectOfType<PlayerAttack>();
         playerTransform = playerMovement.transform;
-       enemyMovement = FindObjectOfType<EnemyMovement>();
+        enemyMovement = FindObjectOfType<EnemyMovement>();
+        bossMovement = FindObjectOfType<BossMovement>();
 
         // Thêm các listener cho các nút
         moveForwardButton.onClick.AddListener(() => {
@@ -73,9 +75,20 @@ public class UIButtonManagement : MonoBehaviour
     void Update()
     {
         bool isPlayerTurn = turnManager.IsPlayerTurn;
-      float distanceToEnemy = Vector3.Distance(playerTransform.position, enemyMovement.transform.position);
+        float distanceToEnemy;
+        if (this.gameObject.scene.name == "Boss1")
+        {
+            distanceToEnemy = Vector3.Distance(playerTransform.position, bossMovement.transform.position);
+
+        }
+        else
+        {
+            distanceToEnemy = Vector3.Distance(playerTransform.position, enemyMovement.transform.position);
+
+        }
+        bool canMoveForward = distanceToEnemy > Vitrikedich;
         bool hasEnoughStamina = playerStamina.currentStamina >= 10;
-       bool canMoveForward = distanceToEnemy > Vitrikedich;
+
         bool canMoveBackward = playerTransform.position.x > leftBoundary;
 
 

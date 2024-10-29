@@ -16,7 +16,8 @@ public class PlayerAttack : MonoBehaviour
     private TutorialManager tutorialManager;
     private EnemyStats enemyStats = new EnemyStats();
     private EnemyNormalManagement enemyNormalManagement;
-
+    private BaseBoss BaseBoss = new BaseBoss();
+    private Boss1NormalManagement boss1NormalManagement;
 
     private string saveFilePath;
 
@@ -33,6 +34,7 @@ public class PlayerAttack : MonoBehaviour
         enemyHealth = FindObjectOfType<EnemyTutorialHealth>();
         playerStamina = FindObjectOfType<PlayerStamina>();
         enemyNormalManagement = FindObjectOfType<EnemyNormalManagement>();
+        boss1NormalManagement = FindObjectOfType<Boss1NormalManagement>();
         enemyTransform = GameObject.FindWithTag("enemy").transform;
         // Kiểm tra xem Enemy đã được gán chưa
         if (enemyHealth != null)
@@ -102,6 +104,35 @@ public class PlayerAttack : MonoBehaviour
                     Debug.Log(enemyNormalManagement.stats.defense);
                     int damageDealt = Mathf.Max(attackDamage - enemyNormalManagement.stats.defense, 0); // Trừ phòng thủ của địch
                     enemyNormalManagement.TakeDamage(10 + damageDealt);
+                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                }
+                else
+                {
+                    Debug.Log("Enemy dodged the attack!");
+                }
+
+                // Trừ stamina sau khi tấn công
+                playerStamina.ReduceStamina(10);
+            }
+            else
+            {
+                Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
+                playerStamina.RegainStamina(20);
+            }
+        }
+        else if (this.gameObject.scene.name == "Boss1")
+        {
+            if (playerStamina.currentStamina > 0)
+            {
+                animator.SetTrigger(triggerAttackWeak);
+                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+                if (!enemyStats.CanDodge(attackDamage))
+                {
+                    // Kẻ địch không né được, tiến hành tấn công
+                    Debug.Log(attackDamage);
+                    Debug.Log(boss1NormalManagement.baseBoss.defense);
+                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
+                    boss1NormalManagement.TakeDamage(10 + damageDealt);
                     Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
                 }
                 else
