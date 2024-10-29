@@ -490,12 +490,12 @@ MonoBehaviour:
     hp: 0
     stamina: 0
     dodge: 0
-  currentStamina: 0
+    currentStamina: 0
+    currentHp: 0
   staminaBar: {fileID: 1282712517}
   enemyStaminaText: {fileID: 813216729}
   healthBar: {fileID: 747280160}
   enemyHealthText: {fileID: 841088476}
-  currentHealth: 0
 --- !u!114 &311473398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -525,14 +525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c042eff174ca38041a5bd6787d6c5d52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyStats:
-    attack: 0
-    defense: 0
-    hp: 0
-    stamina: 0
-    dodge: 0
   attackRange: 2
-  staminaCostForMove: 20
 --- !u!114 &311473401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,6 +540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 2
   playerHealth: {fileID: 1161914498}
+  playerDodge: {fileID: 1161914504}
+  playerDefense: {fileID: 1161914503}
   enemyNormalManagement: {fileID: 311473397}
 --- !u!1 &344014421
 GameObject:
@@ -811,6 +806,8 @@ MonoBehaviour:
     hp: 0
     stamina: 0
     dodge: 0
+    currentStamina: 0
+    currentHp: 0
   isPlayerTurn: 1
 --- !u!1 &519420028
 GameObject:
@@ -2395,6 +2392,7 @@ MonoBehaviour:
   attackDamage: 10
   attackRange: 2
   playerStamina: {fileID: 1161914496}
+  enemyHealth: {fileID: 0}
 --- !u!114 &1161914498
 MonoBehaviour:
   m_ObjectHideFlags: 0

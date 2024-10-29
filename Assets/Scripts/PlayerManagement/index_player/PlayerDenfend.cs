@@ -35,7 +35,7 @@ public class PlayerDefense : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
             // Lấy giá trị defend từ file JSON
-            playerDefense = 5 + data.defense;
+            playerDefense = data.defense;
             Debug.Log("Player Defense loaded successfully: " + playerDefense);
         }
         else

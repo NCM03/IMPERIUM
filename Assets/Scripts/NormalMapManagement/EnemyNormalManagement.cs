@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EnemyNormalManagement : MonoBehaviour
 {
@@ -60,6 +61,27 @@ public class EnemyNormalManagement : MonoBehaviour
         stats.currentStamina = Mathf.Max(stats.currentStamina - amount, 0);
         UpdateStaminaBar();
     }
+
+    public virtual void TakeDamage(int amount)
+    {
+        stats.currentHp -= amount;
+        stats.currentHp = Mathf.Clamp(stats.currentHp, 0, stats.hp);  // Đảm bảo máu không âm
+        UpdateUI();  // Cập nhật giao diện người dùng (nếu có)
+
+        Debug.Log(gameObject.name + " took " + amount + " damage. Current Health: " + stats.currentHp);
+
+        if (stats.currentHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Người chơi đã chiến thắng");
+        SceneManager.LoadScene("Lobby");
+    }
+
     private void UpdateStaminaBar()
     {
         if (staminaBar != null)

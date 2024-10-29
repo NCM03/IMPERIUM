@@ -14,7 +14,8 @@ public class PlayerAttack : MonoBehaviour
     private string triggerAttackNormal = "CutNormal";
     private string triggerAttackStrong = "StrongCut";
     private TutorialManager tutorialManager;
-
+    private EnemyStats enemyStats = new EnemyStats();
+    private EnemyNormalManagement enemyNormalManagement;
 
 
     private string saveFilePath;
@@ -31,6 +32,7 @@ public class PlayerAttack : MonoBehaviour
         tutorialManager = FindObjectOfType<TutorialManager>();
         enemyHealth = FindObjectOfType<EnemyTutorialHealth>();
         playerStamina = FindObjectOfType<PlayerStamina>();
+        enemyNormalManagement = FindObjectOfType<EnemyNormalManagement>();
         enemyTransform = GameObject.FindWithTag("enemy").transform;
         // Kiểm tra xem Enemy đã được gán chưa
         if (enemyHealth != null)
@@ -60,31 +62,61 @@ public class PlayerAttack : MonoBehaviour
     // Hàm tấn công yếu
     public void AttackWeak()
     {
-        Debug.Log(enemyHealth);
-        Debug.Log(playerStamina.currentStamina);
-        if (enemyHealth != null && playerStamina.currentStamina > 0)
+        if(this.gameObject.scene.name == "TurtorialMap")
         {
-            animator.SetTrigger(triggerAttackWeak);
-            // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-            if (!enemyHealth.CanDodge())
+            if (enemyHealth != null && playerStamina.currentStamina > 0)
             {
-                // Kẻ địch không né được, tiến hành tấn công
-                int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
-                enemyHealth.TakeDamage(10 + damageDealt);
-                Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                animator.SetTrigger(triggerAttackWeak);
+                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+                if (!enemyHealth.CanDodge())
+                {
+                    // Kẻ địch không né được, tiến hành tấn công
+                    int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
+                    enemyHealth.TakeDamage(10 + damageDealt);
+                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                }
+                else
+                {
+                    Debug.Log("Enemy dodged the attack!");
+                }
+
+                // Trừ stamina sau khi tấn công
+                playerStamina.ReduceStamina(10);
             }
             else
             {
-                Debug.Log("Enemy dodged the attack!");
+                Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
+                playerStamina.RegainStamina(20);
             }
-
-            // Trừ stamina sau khi tấn công
-            playerStamina.ReduceStamina(10);
         }
-        else
+        else if(this.gameObject.scene.name == "NormalMap")
         {
-            Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
-            playerStamina.RegainStamina(20);
+            if (playerStamina.currentStamina > 0)
+            {
+                animator.SetTrigger(triggerAttackWeak);
+                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+                if (!enemyStats.CanDodge(attackDamage))
+                {
+                    // Kẻ địch không né được, tiến hành tấn công
+                    Debug.Log(attackDamage);
+                    Debug.Log(enemyNormalManagement.stats.defense);
+                    int damageDealt = Mathf.Max(attackDamage - enemyNormalManagement.stats.defense, 0); // Trừ phòng thủ của địch
+                    enemyNormalManagement.TakeDamage(10 + damageDealt);
+                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                }
+                else
+                {
+                    Debug.Log("Enemy dodged the attack!");
+                }
+
+                // Trừ stamina sau khi tấn công
+                playerStamina.ReduceStamina(10);
+            }
+            else
+            {
+                Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
+                playerStamina.RegainStamina(20);
+            }
         }
     }
 
