@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     {
         // Lấy đường dẫn thư mục lưu trữ dựa trên Application.persistentDataPath
         string directoryPath = Application.persistentDataPath + "/DB";
-
+        ResetData();
         // Tạo thư mục nếu chưa tồn tại
         if (!Directory.Exists(directoryPath))
         {
@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
         saveFilePath = directoryPath + "/playerData.json";
         Debug.Log("File Path: " + saveFilePath);
 
+		
         LoadData();
         UpdateUI();
 

@@ -37,13 +37,33 @@ public class PlayerDodge : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
             // Lấy giá trị defend từ file JSON
-            playerDodge = 5 + data.dodge;
+            playerDodge = data.dodge;
             Debug.Log("Player Defense loaded successfully: " + playerDodge + "%");
         }
         else
         {
             Debug.LogError("Save file not found at path: " + saveFilePath);
         }
+    }
+
+    public bool CanDodge(int enemyAttack)
+    {
+        // Tính xác suất dodge dựa trên attack của người chơi và dodge của kẻ địch
+        float dodgeProbability = 1f / (1f + Mathf.Exp(enemyAttack - playerDodge));
+
+        // Random ngẫu nhiên từ 0 đến 1
+        float randomValue = Random.Range(0f, 1f);
+
+        bool dodged = randomValue < dodgeProbability;
+        if (dodged)
+        {
+            Debug.Log("Player successfully dodged the attack with probability: " + dodgeProbability);
+        }
+        else
+        {
+            Debug.Log("Player failed to dodge with probability: " + dodgeProbability);
+        }
+        return dodged;
     }
 
     // Cấu trúc dữ liệu PlayerData để lưu và lấy dữ liệu từ file JSON

@@ -8,7 +8,8 @@ public class EnemyNormalAttack : MonoBehaviour
     public float attackRange = 2.0f; // Khoảng cách để tấn công
     private EnemyStats enemyStats = new EnemyStats();
     public PlayerHealth playerHealth;
-
+    public PlayerDodge playerDodge;
+    public PlayerDefense playerDefense;
     public EnemyNormalManagement enemyNormalManagement;
     private Transform playerTransform;
     private Animator animator;
@@ -33,9 +34,9 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackWeak);
-            if (!enemyStats.CanDodge(enemyStats.attack))
+            if (!playerDodge.CanDodge(enemyStats.attack))
             {
-                int damageDealt = Mathf.Max(enemyStats.attack - enemyStats.defense, 0);
+                int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
                 playerHealth.TakeDamage(damageDealt);
                 Debug.Log("Enemy performed a Weak Attack and dealt " + (damageDealt) + " damage!");
             }
@@ -58,9 +59,9 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackNormal);
-            if (!enemyStats.CanDodge(enemyStats.attack))
+            if (!playerDodge.CanDodge(enemyStats.attack))
             {
-                int damageDealt = Mathf.Max(enemyStats.attack - enemyStats.defense, 0);
+                int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
                 playerHealth.TakeDamage(damageDealt);
                 Debug.Log("Enemy performed a Normal Attack and dealt " + (damageDealt) + " damage!");
             }
@@ -83,9 +84,9 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackStrong);
-            if (!enemyStats.CanDodge(enemyStats.attack))
+            if (!playerDodge.CanDodge(enemyStats.attack))
             {
-                int damageDealt = Mathf.Max(enemyStats.attack - enemyStats.defense, 0);
+                int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
                 playerHealth.TakeDamage(damageDealt);
                 Debug.Log("Enemy performed a Strong Attack and dealt " + (damageDealt) + " damage!");
             }
