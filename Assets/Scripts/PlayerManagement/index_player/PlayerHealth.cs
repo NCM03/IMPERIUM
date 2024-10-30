@@ -70,7 +70,6 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Player is dead!");
         win.gameObject.SetActive(true);
-        Time.timeScale = 0;
     }
 
     private void LoadPlayerData()

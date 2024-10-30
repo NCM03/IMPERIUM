@@ -23,4 +23,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NormalMap.unity
     guid: b7c715f9f18312f4f8783caae38cdc36
+  - enabled: 1
+    path: Assets/Scenes/Boss1.unity
+    guid: 1e20c0e62ac05e9408768136b3254b09
+  - enabled: 1
+    path: Assets/Scenes/Boss2.unity
+    guid: 7a21cfa83591d41468102a3f048676da
+  - enabled: 1
+    path: Assets/Scenes/Boss3.unity
+    guid: d67069f9d1aedde47b453b58ed16e682
   m_configObjects: {}

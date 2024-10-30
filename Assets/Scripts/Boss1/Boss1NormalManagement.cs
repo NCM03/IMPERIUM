@@ -65,7 +65,6 @@ public class Boss1NormalManagement : MonoBehaviour
     {
         Debug.Log("Player is dead!");
         lose.gameObject.SetActive(true);
-        Time.timeScale = 0;
     }
     public void Rest()
     {
