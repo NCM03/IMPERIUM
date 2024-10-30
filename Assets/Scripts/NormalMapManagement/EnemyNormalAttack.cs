@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,11 @@ public class EnemyNormalAttack : MonoBehaviour
     private string triggerAttackWeak = "BossLowCut";
     private string triggerAttackNormal = "BossNormalCut";
     private string triggerAttackStrong = "BossStrongCut";
+    private string triggerDodge = "Block";
+    public TextMeshProUGUI dameText;
+    public TextMeshProUGUI dodgeText;
+    public GameObject dame;
+    public GameObject dodge;
 
     private void Start()
     {
@@ -39,17 +45,21 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackWeak);
-            if (!playerDodge.CanDodge(enemyStats.attack))
+            if (!playerDodge.CanDodge(enemyStats.attack, 6))
             {
+                dame.SetActive(true);
                 int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
-                playerHealth.TakeDamage(damageDealt);
-                Debug.Log("Enemy performed a Weak Attack and dealt " + (damageDealt) + " damage!");
+                playerHealth.TakeDamage(10+damageDealt);
+                dameText.text = $"{10 + damageDealt}";
             }
             else
             {
-                Debug.Log("Player dodged the attack!");
+                animator.SetTrigger(triggerDodge);
+                dodge.SetActive(true);
+                dodgeText.text = "Dodged!";
             }
-            enemyNormalManagement.Rest();
+            StartCoroutine(HideGuideTextAfterDelay(1f));
+            enemyNormalManagement.ReduceStamina(10);
         }
         else
         {
@@ -64,17 +74,21 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackNormal);
-            if (!playerDodge.CanDodge(enemyStats.attack))
+            if (!playerDodge.CanDodge(enemyStats.attack, 8))
             {
+                dame.SetActive(true);
                 int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
-                playerHealth.TakeDamage(damageDealt);
-                Debug.Log("Enemy performed a Normal Attack and dealt " + (damageDealt) + " damage!");
+                playerHealth.TakeDamage(15+damageDealt);
+                dameText.text = $"{15 + damageDealt}";
             }
             else
             {
-                Debug.Log("Player dodged the attack!");
+                animator.SetTrigger(triggerDodge);
+                dodge.SetActive(true);
+                dodgeText.text = "Dodged!";
             }
-            enemyNormalManagement.Rest();
+            StartCoroutine(HideGuideTextAfterDelay(1f));
+            enemyNormalManagement.ReduceStamina(15);
         }
         else
         {
@@ -89,23 +103,36 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackStrong);
-            if (!playerDodge.CanDodge(enemyStats.attack))
+            if (!playerDodge.CanDodge(enemyStats.attack, 10))
             {
+                dame.SetActive(true);
                 int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
-                playerHealth.TakeDamage(damageDealt);
-                Debug.Log("Enemy performed a Strong Attack and dealt " + (damageDealt) + " damage!");
+                playerHealth.TakeDamage(20+damageDealt);
+                dameText.text = $"{20 + damageDealt}";
             }
             else
             {
-                Debug.Log("Player dodged the attack!");
+                animator.SetTrigger(triggerDodge);
+                dodge.SetActive(true);
+                dodgeText.text = "Dodged!";
             }
-            enemyNormalManagement.Rest();
+            StartCoroutine(HideGuideTextAfterDelay(1f));
+            enemyNormalManagement.ReduceStamina(20);
         }
         else
         {
             Debug.Log("Enemy out of stamina, resting to regain stamina");
             enemyNormalManagement.Rest();
         }
+    }
+
+    private IEnumerator HideGuideTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        dameText.text = ""; // Ẩn text bằng cách xóa nội dung của nó
+        dodgeText.text = "";
+        dame.SetActive(false);
+        dodge.SetActive(false);
     }
 
 }

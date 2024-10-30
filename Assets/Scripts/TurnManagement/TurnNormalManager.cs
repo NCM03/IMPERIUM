@@ -38,7 +38,7 @@ public class TurnNormalManager : MonoBehaviour
         isEnemyTurn = true;  // Đặt cờ đang xử lý lượt
         Debug.Log("Player's turn ended, AI's turn starting...");
 
-        Invoke(nameof(StartEnemyTurn), 1f); // Chuyển lượt cho AI
+        Invoke(nameof(StartEnemyTurn), 1.5f); // Chuyển lượt cho AI
 
     }
 
@@ -49,28 +49,28 @@ public class TurnNormalManager : MonoBehaviour
         {
             Debug.Log("AI Normal's turn started");
             boss1AIController.MakeDecision(); // AI cho map Normal
-            Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI}
+            Invoke(nameof(EndEnemyTurn), 1.5f); // Sau một khoảng thời gian, kết thúc lượt của AI}
 
         }
         else if (this.gameObject.scene.name == "Boss2")
         {
             Debug.Log("AI Normal's turn started");
             boss1AIController.MakeDecision(); // AI cho map Normal
-            Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI}
+            Invoke(nameof(EndEnemyTurn), 1.5f); // Sau một khoảng thời gian, kết thúc lượt của AI}
 
         }
         else if (this.gameObject.scene.name == "Boss3")
         {
             Debug.Log("AI Normal's turn started");
             boss1AIController.MakeDecision(); // AI cho map Normal
-            Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI}
+            Invoke(nameof(EndEnemyTurn), 1.5f); // Sau một khoảng thời gian, kết thúc lượt của AI}
 
         }
         else
         {
             Debug.Log("AI Normal's turn started");
             enemyNormalAIController.MakeDecision(); // AI cho map Normal
-            Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI}
+            Invoke(nameof(EndEnemyTurn), 1.5f); // Sau một khoảng thời gian, kết thúc lượt của AI}
         }
     }
     void EndEnemyTurn()

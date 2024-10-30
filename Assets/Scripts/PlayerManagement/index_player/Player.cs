@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
 {
 	// Các thuộc tính của nhân vật
 	public string playerName;
-	public int attack = 1;
-	public int defense = 1;
-	public int hp = 1;
-	public int stamina = 1;
-	public int dodge = 1;
+	public int attack = 0;
+	public int defense = 0;
+	public int hp = 0;
+	public int stamina = 0;
+	public int dodge = 0;
 	public int skillPoints = 9;
 
 	// Tham chiếu đến các UI Text để hiển thị giá trị thuộc tính
@@ -153,9 +153,9 @@ public class Player : MonoBehaviour
     {
         SaveName(); // Gọi để lưu tên trước khi lưu dữ liệu
         SaveData(); // Gọi để lưu tất cả dữ liệu vào file
-
-		// Kiểm tra nếu đây là lần đầu tiên chạy trong phiên hiện tại
-		if (isFirstTimeRun)
+        Time.timeScale = 1;
+        // Kiểm tra nếu đây là lần đầu tiên chạy trong phiên hiện tại
+        if (isFirstTimeRun)
 		{
 			// Lần đầu, chuyển sang NormalMap và đánh dấu không phải lần đầu nữa
 			SceneManager.LoadScene("TurtorialMap");
@@ -212,11 +212,11 @@ public class Player : MonoBehaviour
 
 		// Đặt lại tất cả thuộc tính về giá trị mặc định
 		playerName = "";
-		attack = 1;
-		defense = 1;
-		hp = 1;
-		stamina = 1;
-		dodge = 1;
+		attack = 0;
+		defense = 0;
+		hp = 0;
+		stamina = 0;
+		dodge = 0;
 		skillPoints = 9;
 
         // Cập nhật giao diện

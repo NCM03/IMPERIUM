@@ -9,6 +9,8 @@ public class UIFollowPlayer : MonoBehaviour
     public RectTransform normalAttackButton;  // Nút Tấn công thường
     public RectTransform strongAttackButton;  // Nút Tấn công mạnh
     public RectTransform restButton;
+    public RectTransform dame;
+    public RectTransform dodge;
 
     public float radius = 250f;
 
@@ -28,6 +30,10 @@ public class UIFollowPlayer : MonoBehaviour
 
         // Vị trí nút Tấn công thường (bên trên bên phải)
         normalAttackButton.position = screenPosition + new Vector3(radius / 1.4f, radius / 1.4f, 0);
+
+        dame.position = screenPosition + new Vector3(10+radius / 1.4f, radius / 1.4f, 0);
+
+        dodge.position = screenPosition + new Vector3(10+radius / 1.4f, radius / 1.4f, 0);
 
         // Vị trí nút Tấn công yếu (phía dưới)
         weakAttackButton.position = screenPosition + new Vector3(radius, 0 , 0);

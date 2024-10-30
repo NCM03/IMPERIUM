@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using TMPro;
+using UnityEngine;
 
 public class EnemyTutorialAttack : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class EnemyTutorialAttack : MonoBehaviour
     private Animator animator;
     private Transform playerTransform;
     private string triggerAttackWeak = "BossNormalCut";
+    public TextMeshProUGUI dameText;
+    public GameObject dame;
+
     private void Start()
     {
         if (playerHealth != null)
@@ -27,13 +32,15 @@ public class EnemyTutorialAttack : MonoBehaviour
             {
                 animator.SetTrigger(triggerAttackWeak);
                 // Nếu đứng gần đủ, tấn công và trừ máu
+                dame.SetActive(true);
                 playerHealth.TakeDamage(attackDamage);
-                Debug.Log("Enemy attacked the player!");
+                dameText.text = $"{attackDamage}";
             }
             else
             {
                 Debug.Log("Enemy attempted to attack, but is too far away.");
             }
+            StartCoroutine(HideGuideTextAfterDelay(1f));
             enemyStamina.ReduceStamina(15);
         }
         else
@@ -41,5 +48,12 @@ public class EnemyTutorialAttack : MonoBehaviour
             Debug.Log("Enemy does not have enough stamina to attack.");
             enemyStamina.ReduceStamina(20);
         }
+    }
+
+    private IEnumerator HideGuideTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        dameText.text = ""; // Ẩn text bằng cách xóa nội dung của nó
+        dame.SetActive(false);
     }
 }

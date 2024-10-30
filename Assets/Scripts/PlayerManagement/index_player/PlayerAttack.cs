@@ -1,24 +1,31 @@
 ﻿using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using TMPro;
+using System.Collections;
 
 public class PlayerAttack : MonoBehaviour
 {
     public int attackDamage;  // Sát thương của Player (sẽ được load từ dữ liệu)
-    public float attackRange = 2.0f; // Khoảng cách để tấn công
+    public float attackRange = 1.6f; // Khoảng cách để tấn công
     public PlayerStamina playerStamina;
-    public EnemyTutorialHealth enemyHealth;
+    private EnemyTutorialHealth enemyHealth;
     private Transform enemyTransform;
     private Animator animator;
     private string triggerAttackWeak = "Cut_Right";
     private string triggerAttackNormal = "CutNormal";
     private string triggerAttackStrong = "StrongCut";
+    private string triggerDodged = "Block";
     private TutorialManager tutorialManager;
     private EnemyStats enemyStats = new EnemyStats();
     private EnemyNormalManagement enemyNormalManagement;
-    private BaseBoss BaseBoss = new BaseBoss();
+    private BaseBoss baseBoss = new BaseBoss();
     private Boss1NormalManagement boss1NormalManagement;
- 
+    public TextMeshProUGUI dameText;
+    public TextMeshProUGUI dodgeText;
+    public GameObject dame;
+    public GameObject dodge;
+
     private string saveFilePath;
 
     private void Start()
@@ -54,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
                 tutorialManager.SetCurrentStep(4);
             }
 
-            if (enemyHealth != null && enemyHealth.currentHealth <= enemyHealth.maxHealth * 0.2f && tutorialManager.GetCurrentStep() == 4)
+            if (enemyHealth != null && enemyHealth.currentHealth <= enemyHealth.maxHealth * 0.3f && tutorialManager.GetCurrentStep() == 4)
             {
                 tutorialManager.SetCurrentStep(5);
             }
@@ -74,15 +81,19 @@ public class PlayerAttack : MonoBehaviour
                 if (!enemyHealth.CanDodge())
                 {
                     // Kẻ địch không né được, tiến hành tấn công
-                    int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
-                    enemyHealth.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);               
+                    int damageDealt = Mathf.Max(10+attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
+                    enemyHealth.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
+
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 // Trừ stamina sau khi tấn công
                 playerStamina.ReduceStamina(10);
             }
@@ -98,20 +109,21 @@ public class PlayerAttack : MonoBehaviour
             {
                 animator.SetTrigger(triggerAttackWeak);
                 // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!enemyStats.CanDodge(10+attackDamage, 6))
                 {
                     // Kẻ địch không né được, tiến hành tấn công
-                    Debug.Log(attackDamage);
-                    Debug.Log(enemyNormalManagement.stats.defense);
-                    int damageDealt = Mathf.Max(attackDamage - enemyNormalManagement.stats.defense, 0); // Trừ phòng thủ của địch
-                    enemyNormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(10+attackDamage - enemyNormalManagement.stats.defense, 0); // Trừ phòng thủ của địch
+                    enemyNormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 // Trừ stamina sau khi tấn công
                 playerStamina.ReduceStamina(10);
             }
@@ -127,20 +139,20 @@ public class PlayerAttack : MonoBehaviour
             {
                 animator.SetTrigger(triggerAttackWeak);
                 // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(10+attackDamage, 6))
                 {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    Debug.Log(attackDamage);
-                    Debug.Log(boss1NormalManagement.baseBoss.defense);
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(10+attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 // Trừ stamina sau khi tấn công
                 playerStamina.ReduceStamina(10);
             }
@@ -156,20 +168,21 @@ public class PlayerAttack : MonoBehaviour
             {
                 animator.SetTrigger(triggerAttackWeak);
                 // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(10 + attackDamage, 6))
                 {
                     // Kẻ địch không né được, tiến hành tấn công
-                    Debug.Log(attackDamage);
-                    Debug.Log(boss1NormalManagement.baseBoss.defense);
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 // Trừ stamina sau khi tấn công
                 playerStamina.ReduceStamina(10);
             }
@@ -185,20 +198,21 @@ public class PlayerAttack : MonoBehaviour
             {
                 animator.SetTrigger(triggerAttackWeak);
                 // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(   10 + attackDamage, 6))
                 {
                     // Kẻ địch không né được, tiến hành tấn công
-                    Debug.Log(attackDamage);
-                    Debug.Log(boss1NormalManagement.baseBoss.defense);
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
                     boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dameText.text = $"{10 + damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 // Trừ stamina sau khi tấn công
                 playerStamina.ReduceStamina(10);
             }
@@ -208,6 +222,7 @@ public class PlayerAttack : MonoBehaviour
                 playerStamina.RegainStamina(20);
             }
         }
+
     }
 
     public void AttackNormal()
@@ -220,16 +235,18 @@ public class PlayerAttack : MonoBehaviour
                 // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
                 if (!enemyHealth.CanDodge())
                 {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
-                    enemyHealth.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(15+attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
+                    enemyHealth.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 // Trừ stamina sau khi tấn công
                 playerStamina.ReduceStamina(15);
             }
@@ -244,17 +261,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackNormal);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!enemyStats.CanDodge(15+attackDamage, 8))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - enemyNormalManagement.stats.defense, 0);
-                    enemyNormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(15+attackDamage - enemyNormalManagement.stats.defense, 0);
+                    enemyNormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(15);
             }
             else
@@ -268,17 +288,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackNormal);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(15+attackDamage, 8))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0);
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(15+attackDamage - boss1NormalManagement.baseBoss.defense, 0);
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(15);
             }
             else
@@ -292,17 +315,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackNormal);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(15+attackDamage, 8))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0);
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(15+attackDamage - boss1NormalManagement.baseBoss.defense, 0);
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(15);
             }
             else
@@ -316,17 +342,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackNormal);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(15 + attackDamage, 8))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0);
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(15 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(15);
             }
             else
@@ -347,15 +376,18 @@ public class PlayerAttack : MonoBehaviour
                 animator.SetTrigger(triggerAttackStrong);
                 if (!enemyHealth.CanDodge())
                 {
-                    int damageDealt = Mathf.Max(attackDamage - enemyHealth.defense, 0);
-                    enemyHealth.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(20+ attackDamage - enemyHealth.defense, 0);
+                    enemyHealth.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(20);
             }
             else
@@ -369,17 +401,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackStrong);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!enemyStats.CanDodge(20+attackDamage, 10))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - enemyNormalManagement.stats.defense, 0);
-                    enemyNormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(20+attackDamage - enemyNormalManagement.stats.defense, 0);
+                    enemyNormalManagement.TakeDamage( damageDealt);
+                    dameText.text = $"{ damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(20);
             }
             else
@@ -393,17 +428,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackStrong);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(20+attackDamage, 10))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0);
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(20 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{ damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(20);
             }
             else
@@ -417,17 +455,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackStrong);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(20 + attackDamage, 10))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0);
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(20 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(20);
             }
             else
@@ -441,17 +482,20 @@ public class PlayerAttack : MonoBehaviour
             if (playerStamina.currentStamina > 0)
             {
                 animator.SetTrigger(triggerAttackStrong);
-                if (!enemyStats.CanDodge(attackDamage))
+                if (!boss1NormalManagement.baseBoss.CanDodge(20 + attackDamage, 10))
                 {
-                    int damageDealt = Mathf.Max(attackDamage - boss1NormalManagement.baseBoss.defense, 0);
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    Debug.Log("Player attacked the enemy for " + (10 + damageDealt) + " damage!");
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(20 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
+                    boss1NormalManagement.TakeDamage(damageDealt);
+                    dameText.text = $"{damageDealt}";
                 }
                 else
                 {
-                    Debug.Log("Enemy dodged the attack!");
+                    animator.SetTrigger(triggerDodged);
+                    dodge.SetActive(true);
+                    dodgeText.text = "Dodged!";
                 }
-
+                StartCoroutine(HideGuideTextAfterDelay(1f));
                 playerStamina.ReduceStamina(20);
             }
             else
@@ -479,6 +523,16 @@ public class PlayerAttack : MonoBehaviour
         {
             Debug.LogError("Không tìm thấy file lưu trữ tại: " + saveFilePath);
         }
+    }
+
+    // Coroutine để ẩn guideText sau một khoảng thời gian
+    private IEnumerator HideGuideTextAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        dameText.text = ""; // Ẩn text bằng cách xóa nội dung của nó
+        dodgeText.text = "";
+        dame.SetActive(false);
+        dodge.SetActive(false);
     }
 
     // Cấu trúc dữ liệu để lưu trữ và load chỉ số

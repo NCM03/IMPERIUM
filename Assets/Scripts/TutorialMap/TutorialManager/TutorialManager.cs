@@ -71,14 +71,8 @@ public class TutorialManager : MonoBehaviour
                 {
                     continueButton.gameObject.SetActive(true);
                 }
-                EndTutorial();
             }
         }
-    }
-
-    public void EndTutorial()
-    {
-        sceneController.NextScene();
     }
 
     public int GetCurrentStep()
@@ -107,7 +101,7 @@ public class TutorialManager : MonoBehaviour
         {
             guidePanel.SetActive(true);
             guideText.text = "Chúc mừng, bạn đã dành chiến thắng";
-
+            Time.timeScale = 0;
             // Hiện nút Continue khi đến step 6
             if (continueButton != null)
             {

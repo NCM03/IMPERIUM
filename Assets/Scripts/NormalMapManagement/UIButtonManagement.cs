@@ -14,11 +14,13 @@ public class UIButtonManagement : MonoBehaviour
     private PlayerMovementV2 playerMovement;
     private PlayerAttack playerAttack;
     private Transform playerTransform;
+    private Transform enemyTransform;
     private EnemyMovement enemyMovement;
     private BossMovement bossMovement;
     public float leftBoundary;
     public float rightBoundary;
     public float Vitrikedich = 1f;
+    public float Vitrichemgan = 2f;
 
 
     void Start()
@@ -33,6 +35,7 @@ public class UIButtonManagement : MonoBehaviour
         playerTransform = playerMovement.transform;
         enemyMovement = FindObjectOfType<EnemyMovement>();
         bossMovement = FindObjectOfType<BossMovement>();
+        enemyTransform = GameObject.FindWithTag("enemy").transform;
 
         // Thêm các listener cho các nút
         moveForwardButton.onClick.AddListener(() => {
@@ -98,7 +101,7 @@ public class UIButtonManagement : MonoBehaviour
         }
         bool canMoveForward = distanceToEnemy > Vitrikedich;
         bool hasEnoughStamina = playerStamina.currentStamina >= 10;
-
+        bool canSuperAttack = Vector3.Distance(enemyTransform.position, playerTransform.position) <= Vitrichemgan;
         bool canMoveBackward = playerTransform.position.x > leftBoundary;
 
 
@@ -106,8 +109,8 @@ public class UIButtonManagement : MonoBehaviour
         moveForwardButton.gameObject.SetActive(isPlayerTurn && canMoveForward && hasEnoughStamina);
         moveBackwardButton.gameObject.SetActive(isPlayerTurn && canMoveBackward && hasEnoughStamina);
         weakAttackButton.gameObject.SetActive(isPlayerTurn && hasEnoughStamina);
-        normalAttackButton.gameObject.SetActive(isPlayerTurn && hasEnoughStamina);
-        strongAttackButton.gameObject.SetActive(isPlayerTurn && hasEnoughStamina);
+        normalAttackButton.gameObject.SetActive(canSuperAttack && isPlayerTurn && hasEnoughStamina);
+        strongAttackButton.gameObject.SetActive(canSuperAttack && isPlayerTurn && hasEnoughStamina);
         restButton.gameObject.SetActive(isPlayerTurn && (playerStamina.currentStamina < playerStamina.maxStamina / 2 || !hasEnoughStamina));
     }
 }

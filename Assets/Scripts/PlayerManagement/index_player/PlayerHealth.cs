@@ -68,7 +68,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Player is dead!");
+        Time.timeScale = 0;
         win.gameObject.SetActive(true);
     }
 

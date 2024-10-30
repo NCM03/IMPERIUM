@@ -11,6 +11,7 @@ public class EnemyNormalManagement : MonoBehaviour
     public TextMeshProUGUI enemyStaminaText;
     public Image healthBar;
     public TextMeshProUGUI enemyHealthText;
+    public Image lose;
 
     private void Start()
     {
@@ -70,12 +71,16 @@ public class EnemyNormalManagement : MonoBehaviour
         stats.currentHp = Mathf.Clamp(stats.currentHp, 0, stats.hp);  // Đảm bảo máu không âm
         Debug.Log("After taking damage, Current HP: " + stats.currentHp);
         UpdateUI();  // Cập nhật giao diện người dùng
+        if (stats.currentHp <= 0)
+        {
+            Die();
+        }
     }
 
     private void Die()
     {
-        Debug.Log("Người chơi đã chiến thắng");
-        SceneManager.LoadScene("Lobby");
+        Time.timeScale = 0;
+        lose.gameObject.SetActive(true);
     }
 
     private void UpdateStaminaBar()

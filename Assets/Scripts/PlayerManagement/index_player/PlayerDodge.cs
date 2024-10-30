@@ -46,10 +46,10 @@ public class PlayerDodge : MonoBehaviour
         }
     }
 
-    public bool CanDodge(int enemyAttack)
+    public bool CanDodge(int enemyAttack, float K)
     {
-        // Tính xác suất dodge dựa trên attack của người chơi và dodge của kẻ địch
-        float dodgeProbability = 1f / (1f + Mathf.Exp(enemyAttack - playerDodge));
+        // Tính xác suất dodge dựa trên dodge  của  người chơi và attack của kẻ địch
+        float dodgeProbability = 1f / (1f + Mathf.Exp((enemyAttack - playerDodge) / K));
 
         // Random ngẫu nhiên từ 0 đến 1
         float randomValue = Random.Range(0f, 1f);

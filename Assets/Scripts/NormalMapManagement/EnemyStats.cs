@@ -27,10 +27,10 @@ public class EnemyStats
         Debug.Log("Enemy Strength: Attack: " + attack + ", Defense: " + defense + ", Dodge: " + dodge + ", HP: " + hp + ", Stamina: " + stamina);
     }
 
-    public bool CanDodge(int playerAttack)
+    public bool CanDodge(int playerAttack, float K)
     {
-        // Tính xác suất dodge dựa trên attack của người chơi và dodge của kẻ địch
-        float dodgeProbability = 1f / (1f + Mathf.Exp(playerAttack - dodge));
+        // Tính xác suất dodge dựa trên dodge  của  người chơi và attack của kẻ địch
+        float dodgeProbability = 1f / (1f + Mathf.Exp((playerAttack - dodge) / K));
 
         // Random ngẫu nhiên từ 0 đến 1
         float randomValue = Random.Range(0f, 1f);
@@ -38,11 +38,11 @@ public class EnemyStats
         bool dodged = randomValue < dodgeProbability;
         if (dodged)
         {
-            Debug.Log("Enemy successfully dodged the attack with probability: " + dodgeProbability);
+            Debug.Log("Player successfully dodged the attack with probability: " + dodgeProbability);
         }
         else
         {
-            Debug.Log("Enemy failed to dodge with probability: " + dodgeProbability);
+            Debug.Log("Player failed to dodge with probability: " + dodgeProbability);
         }
         return dodged;
     }

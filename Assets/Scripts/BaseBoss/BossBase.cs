@@ -3,25 +3,54 @@
 [System.Serializable]
 public class BaseBoss
 {
-    public int attack = 50;
-    public int defense = 10;
-    public int hp = 200;
-    public int stamina = 200;
-    public int dodge = 10;
-    public int currentStamina = 200;
-    public int currentHp = 200;
+    public int attack;
+    public int defense;
+    public int hp;
+    public int stamina;
+    public int dodge;
+    public int currentStamina;
+    public int currentHp;
     public void StartBoss1()
     {
+        attack = 30;
+        defense = 10;
+        hp = 160;
+        stamina = 180;
+        dodge = 20;
+        currentStamina = stamina;
+        currentHp = hp;
+    }
+
+    public void StartBoss2()
+    {
+        attack = 40;
+        defense = 20;
+        hp = 180;
+        stamina = 210;
+        dodge = 30;
         currentStamina = stamina;
         currentHp = hp;
 
         Debug.Log("Enemy Strength: Attack: " + attack + ", Defense: " + defense + ", Dodge: " + dodge + ", HP: " + hp + ", Stamina: " + stamina);
     }
 
-    public bool CanDodge(int playerAttack)
+    public void StartBoss3()
     {
-        // Tính xác suất dodge dựa trên attack của người chơi và dodge của kẻ địch
-        float dodgeProbability = 1f / (1f + Mathf.Exp(playerAttack - dodge));
+        attack = 50;
+        defense = 30;
+        hp = 200;
+        stamina = 230;
+        dodge = 50;
+        currentStamina = stamina;
+        currentHp = hp;
+
+        Debug.Log("Enemy Strength: Attack: " + attack + ", Defense: " + defense + ", Dodge: " + dodge + ", HP: " + hp + ", Stamina: " + stamina);
+    }
+
+    public bool CanDodge(int playerAttack, float K)
+    {
+        // Tính xác suất dodge dựa trên dodge  của  người chơi và attack của kẻ địch
+        float dodgeProbability = 1f / (1f + Mathf.Exp((playerAttack - dodge) / K));
 
         // Random ngẫu nhiên từ 0 đến 1
         float randomValue = Random.Range(0f, 1f);
@@ -29,11 +58,11 @@ public class BaseBoss
         bool dodged = randomValue < dodgeProbability;
         if (dodged)
         {
-            Debug.Log("Enemy successfully dodged the attack with probability: " + dodgeProbability);
+            Debug.Log("Player successfully dodged the attack with probability: " + dodgeProbability);
         }
         else
         {
-            Debug.Log("Enemy failed to dodge with probability: " + dodgeProbability);
+            Debug.Log("Player failed to dodge with probability: " + dodgeProbability);
         }
         return dodged;
     }
