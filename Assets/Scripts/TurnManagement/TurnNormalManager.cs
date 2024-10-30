@@ -52,6 +52,20 @@ public class TurnNormalManager : MonoBehaviour
             Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI}
 
         }
+        else if (this.gameObject.scene.name == "Boss2")
+        {
+            Debug.Log("AI Normal's turn started");
+            boss1AIController.MakeDecision(); // AI cho map Normal
+            Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI}
+
+        }
+        else if (this.gameObject.scene.name == "Boss3")
+        {
+            Debug.Log("AI Normal's turn started");
+            boss1AIController.MakeDecision(); // AI cho map Normal
+            Invoke(nameof(EndEnemyTurn), 1f); // Sau một khoảng thời gian, kết thúc lượt của AI}
+
+        }
         else
         {
             Debug.Log("AI Normal's turn started");
