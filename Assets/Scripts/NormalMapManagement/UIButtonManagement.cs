@@ -81,6 +81,16 @@ public class UIButtonManagement : MonoBehaviour
             distanceToEnemy = Vector3.Distance(playerTransform.position, bossMovement.transform.position);
 
         }
+        else if (this.gameObject.scene.name == "Boss2")
+        {
+            distanceToEnemy = Vector3.Distance(playerTransform.position, bossMovement.transform.position);
+
+        }
+        else if (this.gameObject.scene.name == "Boss3")
+        {
+            distanceToEnemy = Vector3.Distance(playerTransform.position, bossMovement.transform.position);
+
+        }
         else
         {
             distanceToEnemy = Vector3.Distance(playerTransform.position, enemyMovement.transform.position);
