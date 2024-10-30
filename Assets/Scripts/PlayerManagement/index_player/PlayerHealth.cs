@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public Image healthBar;
     public TextMeshProUGUI palyerHealthText;
     private string saveFilePath;
+    public Image win;
 
     private void Start()
     {
@@ -28,11 +29,13 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = maxHealth;
         LoadPlayerData();
         UpdateHealthUI();
+
     }
 
     private void Update()
     {
         UpdateUI();
+        Debug.Log(currentHealth);
     }
 
     private void UpdateUI()
@@ -66,7 +69,8 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player is dead!");
-        // Có thể thêm logic game over hoặc reset lại
+        win.gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     private void LoadPlayerData()

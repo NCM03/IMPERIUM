@@ -32,7 +32,14 @@ public class WinNormal : MonoBehaviour
         // Chuyển sang Scene thuộc tính nhân vật (thay "CharacterScene" bằng tên Scene thực tế của bạn)
         SceneManager.LoadScene("Thuoctinhnhanvat");
     }
+    public void OnButtonBossPress()
+    {
+        // Cộng 2 điểm skillPoints và lưu lại
+        UpdateSkill5Points();
 
+        // Chuyển sang Scene thuộc tính nhân vật (thay "CharacterScene" bằng tên Scene thực tế của bạn)
+        SceneManager.LoadScene("Thuoctinhnhanvat");
+    }
     // Hàm để cập nhật skillPoints trong file JSON
     private void UpdateSkillPoints()
     {
@@ -56,7 +63,28 @@ public class WinNormal : MonoBehaviour
             Debug.LogError("Save file not found at path: " + saveFilePath);
         }
     }
+    private void UpdateSkill5Points()
+    {
+        if (File.Exists(saveFilePath))
+        {
+            // Đọc file JSON
+            string json = File.ReadAllText(saveFilePath);
+            PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
+            // Cộng thêm 2 điểm kỹ năng (skillPoints)
+            data.skillPoints += 5;
+
+            // Chuyển đổi đối tượng PlayerData thành JSON và ghi lại vào file
+            string updatedJson = JsonUtility.ToJson(data, true);
+            File.WriteAllText(saveFilePath, updatedJson);
+
+            Debug.Log("SkillPoints updated: " + data.skillPoints);
+        }
+        else
+        {
+            Debug.LogError("Save file not found at path: " + saveFilePath);
+        }
+    }
     // Lớp PlayerData để ánh xạ với dữ liệu JSON
     [System.Serializable]
     public class PlayerData

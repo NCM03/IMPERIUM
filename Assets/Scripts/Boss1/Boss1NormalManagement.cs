@@ -10,7 +10,7 @@ public class Boss1NormalManagement : MonoBehaviour
     public TextMeshProUGUI enemyStaminaText;
     public Image healthBar;
     public TextMeshProUGUI enemyHealthText;
-
+    public Image lose;
     private void Start()
     {
         baseBoss.StartBoss1();
@@ -56,8 +56,17 @@ public class Boss1NormalManagement : MonoBehaviour
         baseBoss.currentHp = Mathf.Clamp(baseBoss.currentHp, 0, baseBoss.hp);  // Đảm bảo máu không âm
         Debug.Log("After taking damage, Current HP: " + baseBoss.currentHp);
         UpdateUI();  // Cập nhật giao diện người dùng
+        if(baseBoss.currentHp <= 0)
+        {
+            Die();
+        }
     }
-
+    private void Die()
+    {
+        Debug.Log("Player is dead!");
+        lose.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
     public void Rest()
     {
         RegainStamina(20);

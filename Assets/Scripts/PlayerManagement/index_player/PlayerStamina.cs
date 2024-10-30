@@ -25,7 +25,7 @@ public class PlayerStamina : MonoBehaviour
         // Đường dẫn tới file JSON
         saveFilePath = directoryPath + "/playerData.json";
         Debug.Log("File Path: " + saveFilePath);
-
+        currentStamina = maxStamina;
         LoadPlayerData();
         UpdateStaminaBar(); // Cập nhật giao diện thể lực
     }
