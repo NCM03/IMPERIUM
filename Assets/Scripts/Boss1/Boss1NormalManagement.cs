@@ -13,10 +13,21 @@ public class Boss1NormalManagement : MonoBehaviour
     public Image lose;
     private void Start()
     {
-        baseBoss.StartBoss1();
+        if(this.gameObject.scene.name == "Boss1")
+        {
+            baseBoss.StartBoss1();
+        }else if (this.gameObject.scene.name == "Boss2")
+        {
+            baseBoss.StartBoss2();
+        }
+        else if (this.gameObject.scene.name == "Boss3")
+        {
+            baseBoss.StartBoss3();
+        }
 
-        // Thêm thành phần EnemyMovement vào GameObject
-        movement = gameObject.AddComponent<EnemyMovement>();
+
+            // Thêm thành phần EnemyMovement vào GameObject
+            movement = gameObject.AddComponent<EnemyMovement>();
         UpdateHealthBar();
         UpdateStaminaBar();
 

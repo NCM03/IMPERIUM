@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private EnemyTutorialHealth enemyHealth;
     private Transform enemyTransform;
     private Animator animator;
+    private PlayerMovementV2 playerMovementV2;
     private string triggerAttackWeak = "Cut_Right";
     private string triggerAttackNormal = "CutNormal";
     private string triggerAttackStrong = "StrongCut";
@@ -25,11 +26,12 @@ public class PlayerAttack : MonoBehaviour
     public TextMeshProUGUI dodgeText;
     public GameObject dame;
     public GameObject dodge;
-
+    float distance;
     private string saveFilePath;
 
     private void Start()
     {
+
         // Tìm đường dẫn file JSON để load chỉ số
         string directoryPath = Application.persistentDataPath + "/DB";
         saveFilePath = directoryPath + "/playerData.json";
@@ -42,20 +44,22 @@ public class PlayerAttack : MonoBehaviour
         playerStamina = FindObjectOfType<PlayerStamina>();
         enemyNormalManagement = FindObjectOfType<EnemyNormalManagement>();
         boss1NormalManagement = FindObjectOfType<Boss1NormalManagement>();
-     
+        playerMovementV2 = FindObjectOfType<PlayerMovementV2>();
+
         enemyTransform = GameObject.FindWithTag("enemy").transform;
         // Kiểm tra xem Enemy đã được gán chưa
         if (enemyHealth != null)
         {
             enemyTransform = enemyHealth.transform;
         }
+        distance = Vector3.Distance(transform.position, enemyTransform.position);
     }
 
     private void Update()
     {
         if (enemyTransform != null && this.gameObject.scene.name == "TurtorialMap")
         {
-            float distance = Vector3.Distance(transform.position, enemyTransform.position);
+            distance = Vector3.Distance(transform.position, enemyTransform.position);
             if (distance <= attackRange && tutorialManager.GetCurrentStep() == 3)
             {
                 tutorialManager.SetCurrentStep(4);
@@ -66,6 +70,8 @@ public class PlayerAttack : MonoBehaviour
                 tutorialManager.SetCurrentStep(5);
             }
         }
+        Debug.Log($"Distance to enemy: {distance}, Attack Range: {attackRange}");
+
     }
 
 
@@ -81,8 +87,8 @@ public class PlayerAttack : MonoBehaviour
                 if (!enemyHealth.CanDodge())
                 {
                     // Kẻ địch không né được, tiến hành tấn công
-                    dame.SetActive(true);               
-                    int damageDealt = Mathf.Max(10+attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
+                    dame.SetActive(true);
+                    int damageDealt = Mathf.Max(10 + attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
                     enemyHealth.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
 
@@ -105,122 +111,159 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (this.gameObject.scene.name == "NormalMap")
         {
-            if (playerStamina.currentStamina > 0)
+            // Lệnh kiểm tra nếu đứng gần thì đánh, nếu đứng xa thì thành chém xa
+            if (distance <= attackRange)
             {
-                animator.SetTrigger(triggerAttackWeak);
-                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!enemyStats.CanDodge(10+attackDamage, 6))
+                if (playerStamina.currentStamina > 0)
                 {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    dame.SetActive(true);
-                    int damageDealt = Mathf.Max(10+attackDamage - enemyNormalManagement.stats.defense, 0); // Trừ phòng thủ của địch
-                    enemyNormalManagement.TakeDamage(damageDealt);
-                    dameText.text = $"{damageDealt}";
+                    animator.SetTrigger(triggerAttackWeak);
+                    // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+                    if (!enemyStats.CanDodge(10 + attackDamage, 6))
+                    {
+                        // Kẻ địch không né được, tiến hành tấn công
+                        dame.SetActive(true);
+                        int damageDealt = Mathf.Max(10 + attackDamage - enemyNormalManagement.stats.defense, 0); // Trừ phòng thủ của địch
+                        enemyNormalManagement.TakeDamage(damageDealt);
+                        dameText.text = $"{damageDealt}";
+                    }
+                    else
+                    {
+                        animator.SetTrigger(triggerDodged);
+                        dodge.SetActive(true);
+                        dodgeText.text = "Dodged!";
+                    }
+                    StartCoroutine(HideGuideTextAfterDelay(1f));
+                    // Trừ stamina sau khi tấn công
+                    playerStamina.ReduceStamina(10);
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
-                    dodge.SetActive(true);
-                    dodgeText.text = "Dodged!";
+                    Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
+                    playerStamina.RegainStamina(20);
                 }
-                StartCoroutine(HideGuideTextAfterDelay(1f));
-                // Trừ stamina sau khi tấn công
-                playerStamina.ReduceStamina(10);
             }
             else
             {
-                Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
-                playerStamina.RegainStamina(20);
+                animator.SetTrigger(triggerAttackWeak);
+                playerStamina.ReduceStamina(10);
             }
         }
+
         else if (this.gameObject.scene.name == "Boss1")
         {
-            if (playerStamina.currentStamina > 0)
+            if (distance <= attackRange)
             {
-                animator.SetTrigger(triggerAttackWeak);
-                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!boss1NormalManagement.baseBoss.CanDodge(10+attackDamage, 6))
+                if (playerStamina.currentStamina > 0)
                 {
-                    dame.SetActive(true);
-                    int damageDealt = Mathf.Max(10+attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
-                    boss1NormalManagement.TakeDamage(damageDealt);
-                    dameText.text = $"{damageDealt}";
+                    animator.SetTrigger(triggerAttackWeak);
+                    // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+                    if (!boss1NormalManagement.baseBoss.CanDodge(10 + attackDamage, 6))
+                    {
+                        dame.SetActive(true);
+                        int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
+                        boss1NormalManagement.TakeDamage(damageDealt);
+                        dameText.text = $"{damageDealt}";
+                    }
+                    else
+                    {
+                        animator.SetTrigger(triggerDodged);
+                        dodge.SetActive(true);
+                        dodgeText.text = "Dodged!";
+                    }
+                    StartCoroutine(HideGuideTextAfterDelay(1f));
+                    // Trừ stamina sau khi tấn công
+                    playerStamina.ReduceStamina(10);
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
-                    dodge.SetActive(true);
-                    dodgeText.text = "Dodged!";
+                    Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
+                    playerStamina.RegainStamina(20);
                 }
-                StartCoroutine(HideGuideTextAfterDelay(1f));
-                // Trừ stamina sau khi tấn công
-                playerStamina.ReduceStamina(10);
             }
             else
             {
-                Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
-                playerStamina.RegainStamina(20);
+                animator.SetTrigger(triggerAttackWeak);
+                playerStamina.ReduceStamina(10);
             }
+
         }
         else if (this.gameObject.scene.name == "Boss3")
         {
-            if (playerStamina.currentStamina > 0)
+            if (distance <= attackRange)
             {
-                animator.SetTrigger(triggerAttackWeak);
-                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!boss1NormalManagement.baseBoss.CanDodge(10 + attackDamage, 6))
+                if (playerStamina.currentStamina > 0)
                 {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    dame.SetActive(true);
-                    int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
-                    boss1NormalManagement.TakeDamage(damageDealt);
-                    dameText.text = $"{damageDealt}";
+                    animator.SetTrigger(triggerAttackWeak);
+                    // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+                    if (!boss1NormalManagement.baseBoss.CanDodge(10 + attackDamage, 6))
+                    {
+                        // Kẻ địch không né được, tiến hành tấn công
+                        dame.SetActive(true);
+                        int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
+                        boss1NormalManagement.TakeDamage(damageDealt);
+                        dameText.text = $"{damageDealt}";
+                    }
+                    else
+                    {
+                        animator.SetTrigger(triggerDodged);
+                        dodge.SetActive(true);
+                        dodgeText.text = "Dodged!";
+                    }
+                    StartCoroutine(HideGuideTextAfterDelay(1f));
+                    // Trừ stamina sau khi tấn công
+                    playerStamina.ReduceStamina(10);
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
-                    dodge.SetActive(true);
-                    dodgeText.text = "Dodged!";
+                    Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
+                    playerStamina.RegainStamina(20);
                 }
-                StartCoroutine(HideGuideTextAfterDelay(1f));
-                // Trừ stamina sau khi tấn công
-                playerStamina.ReduceStamina(10);
             }
             else
             {
-                Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
-                playerStamina.RegainStamina(20);
+                animator.SetTrigger(triggerAttackWeak);
+                playerStamina.ReduceStamina(10);
             }
+
         }
         else if (this.gameObject.scene.name == "Boss2")
         {
-            if (playerStamina.currentStamina > 0)
+            if (distance <= attackRange)
             {
-                animator.SetTrigger(triggerAttackWeak);
-                // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
-                if (!boss1NormalManagement.baseBoss.CanDodge(   10 + attackDamage, 6))
+                if (playerStamina.currentStamina > 0)
                 {
-                    // Kẻ địch không né được, tiến hành tấn công
-                    dame.SetActive(true);
-                    int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
-                    boss1NormalManagement.TakeDamage(10 + damageDealt);
-                    dameText.text = $"{10 + damageDealt}";
+                    animator.SetTrigger(triggerAttackWeak);
+                    // Nếu đứng gần đủ, tính toán né tránh của kẻ địch
+                    if (!boss1NormalManagement.baseBoss.CanDodge(10 + attackDamage, 6))
+                    {
+                        // Kẻ địch không né được, tiến hành tấn công
+                        dame.SetActive(true);
+                        int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
+                        boss1NormalManagement.TakeDamage(10 + damageDealt);
+                        dameText.text = $"{10 + damageDealt}";
+                    }
+                    else
+                    {
+                        animator.SetTrigger(triggerDodged);
+                        dodge.SetActive(true);
+                        dodgeText.text = "Dodged!";
+                    }
+                    StartCoroutine(HideGuideTextAfterDelay(1f));
+                    // Trừ stamina sau khi tấn công
+                    playerStamina.ReduceStamina(10);
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
-                    dodge.SetActive(true);
-                    dodgeText.text = "Dodged!";
+                    Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
+                    playerStamina.RegainStamina(20);
                 }
-                StartCoroutine(HideGuideTextAfterDelay(1f));
-                // Trừ stamina sau khi tấn công
-                playerStamina.ReduceStamina(10);
             }
             else
             {
-                Debug.Log("Không đủ stamina, tự động nghỉ ngơi");
-                playerStamina.RegainStamina(20);
+                animator.SetTrigger(triggerAttackWeak);
+                playerStamina.ReduceStamina(10);
             }
+
         }
 
     }
