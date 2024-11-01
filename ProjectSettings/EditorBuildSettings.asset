@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boss3.unity
     guid: d67069f9d1aedde47b453b58ed16e682
+  - enabled: 1
+    path: Assets/Scenes/EndGame.unity
+    guid: 7b41f48d1d3c64d40a422f10b438d073
   m_configObjects: {}

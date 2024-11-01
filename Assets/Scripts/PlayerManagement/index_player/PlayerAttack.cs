@@ -26,8 +26,8 @@ public class PlayerAttack : MonoBehaviour
     public TextMeshProUGUI dodgeText;
     public GameObject dame;
     public GameObject dodge;
-    float distance;
     private string saveFilePath;
+    float distanceToEnemy;
 
     private void Start()
     {
@@ -52,15 +52,15 @@ public class PlayerAttack : MonoBehaviour
         {
             enemyTransform = enemyHealth.transform;
         }
-        distance = Vector3.Distance(transform.position, enemyTransform.position);
     }
 
     private void Update()
     {
+        distanceToEnemy = playerMovementV2.distance;
         if (enemyTransform != null && this.gameObject.scene.name == "TurtorialMap")
         {
-            distance = Vector3.Distance(transform.position, enemyTransform.position);
-            if (distance <= attackRange && tutorialManager.GetCurrentStep() == 3)
+            distanceToEnemy = Vector3.Distance(transform.position, enemyTransform.position);
+            if (distanceToEnemy <= attackRange && tutorialManager.GetCurrentStep() == 3)
             {
                 tutorialManager.SetCurrentStep(4);
             }
@@ -70,7 +70,8 @@ public class PlayerAttack : MonoBehaviour
                 tutorialManager.SetCurrentStep(5);
             }
         }
-        Debug.Log($"Distance to enemy: {distance}, Attack Range: {attackRange}");
+        
+        Debug.Log($"Distance to enemy: {distanceToEnemy}, Attack Range: {attackRange}");
 
     }
 
@@ -112,7 +113,7 @@ public class PlayerAttack : MonoBehaviour
         else if (this.gameObject.scene.name == "NormalMap")
         {
             // Lệnh kiểm tra nếu đứng gần thì đánh, nếu đứng xa thì thành chém xa
-            if (distance <= attackRange)
+            if (distanceToEnemy <= attackRange)
             {
                 if (playerStamina.currentStamina > 0)
                 {
@@ -151,7 +152,7 @@ public class PlayerAttack : MonoBehaviour
 
         else if (this.gameObject.scene.name == "Boss1")
         {
-            if (distance <= attackRange)
+            if (distanceToEnemy <= attackRange)
             {
                 if (playerStamina.currentStamina > 0)
                 {
@@ -189,7 +190,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (this.gameObject.scene.name == "Boss3")
         {
-            if (distance <= attackRange)
+            if (distanceToEnemy <= attackRange)
             {
                 if (playerStamina.currentStamina > 0)
                 {
@@ -228,7 +229,7 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (this.gameObject.scene.name == "Boss2")
         {
-            if (distance <= attackRange)
+            if (distanceToEnemy <= attackRange)
             {
                 if (playerStamina.currentStamina > 0)
                 {

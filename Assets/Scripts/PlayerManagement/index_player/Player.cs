@@ -24,10 +24,6 @@ public class Player : MonoBehaviour
 	public Text skillPointsText;
     private static bool isFirstTimeRun = true;
 
-    //Logic Hiện các nút theo tutorial hay theo đánh thật
-    public UIButtonTutorialManager tutorialManager;
-    public UIButtonManagement mainManager;
-
     private string saveFilePath;
 
     private void Start()

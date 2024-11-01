@@ -16,6 +16,7 @@ public class PlayerMovementV2 : MonoBehaviour
     public GameObject player;  // Đối tượng nhân vật
     public Transform enemyTransform;
     private Rigidbody2D rb;
+    public float distance;
 
     void Start()
     {
@@ -56,6 +57,7 @@ public class PlayerMovementV2 : MonoBehaviour
                 isMoving = false;
             }
         }
+        distance = Vector3.Distance(transform.position, enemyTransform.position);
     }
 
     public void MoveForward()
