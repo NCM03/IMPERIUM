@@ -18,6 +18,7 @@ public class StatsDisplay : MonoBehaviour
     public Text bossDodgeText;
 
     private BaseBoss boss;
+    private EnemyStats enemyStats;
     // Placeholder variables for player stats
     private int playerAttack = 0;
     private int playerHp = 0;
@@ -47,7 +48,7 @@ public class StatsDisplay : MonoBehaviour
         UpdateStatsUI();
         // Khởi tạo đối tượng Boss (hoặc nhận từ một script khác)
         boss = new BaseBoss();
-
+        enemyStats = new EnemyStats();
         if (this.gameObject.scene.name == "Boss1")
         {
             boss.StartBoss1();
@@ -60,18 +61,33 @@ public class StatsDisplay : MonoBehaviour
         {
             boss.StartBoss3();
         }
+        else
+        {
+            enemyStats.AssignRandomStrength();
+        }
         // Cập nhật UI với các giá trị của Boss
         UpdateBossStatsUI();
     }
 
     void UpdateBossStatsUI()
     {
-        // Cập nhật các giá trị từ BaseBoss lên UI
-        bossAttackText.text = boss.attack + " :Attack";
-        bossHpText.text = boss.hp + " :HP";
-        bossStaminaText.text = boss.stamina + " :Stamina";
-        bossDefendText.text = boss.defense + " :Defense";
-        bossDodgeText.text = boss.dodge + " :Dodge";
+        if (this.gameObject.scene.name == "NormalMap")
+        {
+            bossAttackText.text = enemyStats.attack + " :Attack";
+            bossHpText.text = enemyStats.hp + " :HP";
+            bossStaminaText.text = enemyStats.stamina + " :Stamina";
+            bossDefendText.text = enemyStats.defense + " :Defense";
+            bossDodgeText.text = enemyStats.dodge + " :Dodge";
+        }
+        else
+        {
+            // Cập nhật các giá trị từ BaseBoss lên UI
+            bossAttackText.text = boss.attack + " :Attack";
+            bossHpText.text = boss.hp + " :HP";
+            bossStaminaText.text = boss.stamina + " :Stamina";
+            bossDefendText.text = boss.defense + " :Defense";
+            bossDodgeText.text = boss.dodge + " :Dodge";
+        }
     }
 
     void UpdateStatsUI()
