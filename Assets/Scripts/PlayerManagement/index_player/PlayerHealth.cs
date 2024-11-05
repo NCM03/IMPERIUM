@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int maxHealth;
+	public int dodgeChance;
+	public int maxHealth;
     public int currentHealth;
     public Image healthBar;
     public TextMeshProUGUI palyerHealthText;
@@ -31,8 +32,12 @@ public class PlayerHealth : MonoBehaviour
         UpdateHealthUI();
 
     }
-
-    private void Update()
+	public bool CanDodge()
+	{
+		int randomChance = Random.Range(0, 100);
+		return randomChance < dodgeChance;
+	}
+	private void Update()
     {
         UpdateUI();
         Debug.Log(currentHealth);

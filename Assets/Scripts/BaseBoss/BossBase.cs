@@ -36,7 +36,7 @@ public class BaseBoss
 
     public void StartBoss3()
     {
-        attack = 50;
+        attack = 1;
         defense = 30;
         hp = 200;
         stamina = 230;

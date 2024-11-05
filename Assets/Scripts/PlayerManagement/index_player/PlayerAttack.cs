@@ -16,7 +16,7 @@ public class PlayerAttack : MonoBehaviour
     private string triggerAttackWeak = "Cut_Right";
     private string triggerAttackNormal = "CutNormal";
     private string triggerAttackStrong = "StrongCut";
-    private string triggerDodged = "Block";
+    private string triggerDodged = "BossBlock";
     private TutorialManager tutorialManager;
     private EnemyStats enemyStats = new EnemyStats();
     private EnemyNormalManagement enemyNormalManagement;
@@ -26,14 +26,20 @@ public class PlayerAttack : MonoBehaviour
     public TextMeshProUGUI dodgeText;
     public GameObject dame;
     public GameObject dodge;
-    private string saveFilePath;
+	public GameObject otherGameObject; // Assign this in the Inspector
+	private Animator otherAnimator;
+	private string saveFilePath;
     float distanceToEnemy;
 
     private void Start()
     {
-
-        // Tìm đường dẫn file JSON để load chỉ số
-        string directoryPath = Application.persistentDataPath + "/DB";
+		animator = GetComponent<Animator>();
+		if (otherGameObject != null)
+		{
+			otherAnimator = otherGameObject.GetComponent<Animator>();
+		}
+		// Tìm đường dẫn file JSON để load chỉ số
+		string directoryPath = Application.persistentDataPath + "/DB";
         saveFilePath = directoryPath + "/playerData.json";
 
         // Load dữ liệu của nhân vật
@@ -45,7 +51,7 @@ public class PlayerAttack : MonoBehaviour
         enemyNormalManagement = FindObjectOfType<EnemyNormalManagement>();
         boss1NormalManagement = FindObjectOfType<Boss1NormalManagement>();
         playerMovementV2 = FindObjectOfType<PlayerMovementV2>();
-
+       
         enemyTransform = GameObject.FindWithTag("enemy").transform;
         // Kiểm tra xem Enemy đã được gán chưa
         if (enemyHealth != null)
@@ -96,7 +102,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+                    otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -129,7 +135,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                     else
                     {
-                        animator.SetTrigger(triggerDodged);
+						otherAnimator.SetTrigger(triggerDodged);
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -167,7 +173,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                     else
                     {
-                        animator.SetTrigger(triggerDodged);
+						otherAnimator.SetTrigger(triggerDodged);
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -206,7 +212,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                     else
                     {
-                        animator.SetTrigger(triggerDodged);
+						otherAnimator.SetTrigger(triggerDodged);
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -245,7 +251,7 @@ public class PlayerAttack : MonoBehaviour
                     }
                     else
                     {
-                        animator.SetTrigger(triggerDodged);
+						otherAnimator.SetTrigger(triggerDodged);
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -286,7 +292,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -314,7 +320,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -341,7 +347,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -368,7 +374,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -395,7 +401,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -427,7 +433,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -454,7 +460,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -481,7 +487,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -508,7 +514,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -535,7 +541,7 @@ public class PlayerAttack : MonoBehaviour
                 }
                 else
                 {
-                    animator.SetTrigger(triggerDodged);
+					otherAnimator.SetTrigger(triggerDodged);
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
