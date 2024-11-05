@@ -208,11 +208,11 @@ public class Player : MonoBehaviour
 
 		// Đặt lại tất cả thuộc tính về giá trị mặc định
 		playerName = "";
-		attack = 0;
-		defense = 0;
-		hp = 0;
-		stamina = 0;
-		dodge = 0;
+		attack = 1;
+		defense = 1;
+		hp = 1;
+		stamina = 1;
+		dodge = 1;
 		skillPoints = 9;
 
         // Cập nhật giao diện
@@ -223,10 +223,38 @@ public class Player : MonoBehaviour
 
 		UpdateUI();
 	}
+    public void ResetDataIndex()
+    {
+        // Xóa file lưu trữ nếu tồn tại
+        if (File.Exists(saveFilePath))
+        {
+            File.Delete(saveFilePath);
+            Debug.Log("Save file deleted.");
+        }
+
+        // Tính lại skillPoints dựa trên tổng điểm kỹ năng hiện tại
+        int totalSkillPoints = attack + defense + hp + stamina + dodge;
+        skillPoints += totalSkillPoints - 5; // 5 là giá trị mặc định của các thuộc tính khi reset về 1
+
+        // Đặt lại các thuộc tính về giá trị mặc định là 1
+        attack = 1;
+        defense = 1;
+        hp = 1;
+        stamina = 1;
+        dodge = 1;
+
+        // Cập nhật giao diện
+        if (nameInputField != null) // Kiểm tra xem InputField có được tham chiếu không
+        {
+            nameInputField.text = ""; // Đặt lại tên trong InputField về chuỗi rỗng
+        }
+
+        UpdateUI();
+    }
 
 
-	// Cấu trúc dữ liệu để lưu vào file
-	[System.Serializable]
+    // Cấu trúc dữ liệu để lưu vào file
+    [System.Serializable]
 	public class PlayerData
 	{
 		public string playerName;

@@ -3504,7 +3504,6 @@ GameObject:
   - component: {fileID: 1707973831}
   - component: {fileID: 1707973830}
   - component: {fileID: 1707973829}
-  - component: {fileID: 1707973832}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -3576,10 +3575,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1707973832}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadSceneByIndex
-        m_Mode: 3
+      - m_Target: {fileID: 593358635}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: ResetDataIndex
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3626,18 +3625,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707973827}
   m_CullTransparentMesh: 1
---- !u!114 &1707973832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1707973827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a260f6f888efc294f842702f2efb9154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1719884917
 GameObject:
   m_ObjectHideFlags: 0
