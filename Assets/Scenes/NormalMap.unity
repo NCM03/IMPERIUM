@@ -3752,6 +3752,7 @@ MonoBehaviour:
   dodgeText: {fileID: 384957954}
   dame: {fileID: 1940522138}
   dodge: {fileID: 362125764}
+  otherGameObject: {fileID: 1161914488}
 --- !u!114 &1161914498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3764,6 +3765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942073dbb8917084a8b8ca173cd8b89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeChance: 0
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 2105341487}

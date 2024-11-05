@@ -798,6 +798,7 @@ MonoBehaviour:
   dodgeText: {fileID: 1247489758}
   dame: {fileID: 1515154687}
   dodge: {fileID: 762321399}
+  otherGameObject: {fileID: 1161914488}
 --- !u!114 &311473403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3655,6 +3656,7 @@ MonoBehaviour:
   rightBoundary: 0
   player: {fileID: 1161914488}
   enemyTransform: {fileID: 311473381}
+  distance: 0
 --- !u!114 &1161914496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3690,6 +3692,7 @@ MonoBehaviour:
   dodgeText: {fileID: 1247489758}
   dame: {fileID: 1515154687}
   dodge: {fileID: 762321399}
+  otherGameObject: {fileID: 311473379}
 --- !u!114 &1161914498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3702,6 +3705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 942073dbb8917084a8b8ca173cd8b89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeChance: 0
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 2105341487}
