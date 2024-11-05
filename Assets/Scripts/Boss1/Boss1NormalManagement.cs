@@ -74,6 +74,7 @@ public class Boss1NormalManagement : MonoBehaviour
     }
     private void Die()
     {
+        Time.timeScale = 0;
         Debug.Log("Enemy is dead!");
         lose.gameObject.SetActive(true);
     }

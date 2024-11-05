@@ -5,34 +5,54 @@ using UnityEngine.SceneManagement;
 
 public class EnemyNormalManagement : MonoBehaviour
 {
-    public EnemyStats stats = new EnemyStats();
+    public EnemyStats stats;
     private EnemyMovement movement;
     public Image staminaBar;
     public TextMeshProUGUI enemyStaminaText;
     public Image healthBar;
     public TextMeshProUGUI enemyHealthText;
     public Image lose;
-
+    public Text bossAttackText;
+    public Text bossHpText;
+    public Text bossStaminaText;
+    public Text bossDefendText;
+    public Text bossDodgeText;
     private void Start()
     {
-        stats.AssignRandomStrength();
+        // Giả sử `stats` đã được random từ trước, ta chỉ cần cập nhật UI
+        if (stats == null)
+        {
+            Debug.LogError("stats chưa được khởi tạo và random.");
+            return;
+        }
+        Debug.Log("Assigned Stats: Attack=" + stats.attack + ", HP=" + stats.hp +
+              ", Stamina=" + stats.stamina + ", Defense=" + stats.defense +
+              ", Dodge=" + stats.dodge);
 
-        // Thêm thành phần EnemyMovement vào GameObject
+        // Thêm component EnemyMovement vào GameObject
         movement = gameObject.AddComponent<EnemyMovement>();
+
+        // Cập nhật thanh máu và thanh stamina
         UpdateHealthBar();
         UpdateStaminaBar();
 
-        if (staminaBar == null || enemyStaminaText == null || healthBar == null || enemyHealthText == null)
-        {
-            Debug.LogWarning("Một trong các thành phần UI không được thiết lập trong Inspector.");
-        }
+        // Cập nhật UI với các chỉ số của boss
+        UpdateBossStatsUI();
     }
 
     private void Update()
     {
-        UpdateUI();
+        UpdateBossStatsUI();
     }
-
+    void UpdateBossStatsUI()
+    {
+        // Sử dụng các giá trị đã random từ `EnemyStats` để cập nhật UI
+        bossAttackText.text = stats.attack + " :Attack";
+        bossHpText.text = stats.hp + " :HP";
+        bossStaminaText.text = stats.stamina + " :Stamina";
+        bossDefendText.text = stats.defense + " :Defense";
+        bossDodgeText.text = stats.dodge + " :Dodge";
+    }
     public void ReloadScene()
     {
         // Reset lại scene hiện tại bằng cách load lại chính nó
@@ -53,7 +73,6 @@ public class EnemyNormalManagement : MonoBehaviour
         UpdateHealthBar();
         UpdateStaminaBar();
     }
-
     public void Rest()
     {
         RegainStamina(20);

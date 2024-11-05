@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEngine;
 
 [System.Serializable]
 public class EnemyStats
@@ -10,6 +11,8 @@ public class EnemyStats
     public int dodge;
     public int currentStamina;
     public int currentHp;
+
+    
     public void AssignRandomStrength()
     {
         int[] possibleTotals = { 10, 15, 20, 25 };
@@ -23,7 +26,6 @@ public class EnemyStats
 
         currentStamina = stamina;
         currentHp = hp;
-
         Debug.Log("Enemy Strength: Attack: " + attack + ", Defense: " + defense + ", Dodge: " + dodge + ", HP: " + hp + ", Stamina: " + stamina);
     }
 
@@ -46,5 +48,4 @@ public class EnemyStats
         }
         return dodged;
     }
-
 }

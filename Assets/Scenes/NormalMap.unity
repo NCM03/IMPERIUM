@@ -650,7 +650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "M\xE0y Ngu"
+  m_text: "Th\u1EA5t b\u1EA1i h\xE3y th\u1EED l\u1EA1i"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -713,7 +713,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -169.01965, y: 0, z: -152.11792, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -845,6 +845,11 @@ MonoBehaviour:
   healthBar: {fileID: 747280160}
   enemyHealthText: {fileID: 841088476}
   lose: {fileID: 348258000}
+  bossAttackText: {fileID: 398971558}
+  bossHpText: {fileID: 1256446155}
+  bossStaminaText: {fileID: 1793705374}
+  bossDefendText: {fileID: 824833214}
+  bossDodgeText: {fileID: 15446621}
 --- !u!114 &311473398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3172,7 +3177,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 891254778}
         m_TargetAssemblyTypeName: WinNormal, Assembly-CSharp
-        m_MethodName: OnButtonBossPress
+        m_MethodName: OnButtonPress
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4504,11 +4509,11 @@ MonoBehaviour:
   playerStaminaText: {fileID: 675181755}
   playerDefendText: {fileID: 1528647121}
   playerDodgeText: {fileID: 1008254522}
-  bossAttackText: {fileID: 398971558}
-  bossHpText: {fileID: 1256446155}
-  bossStaminaText: {fileID: 1793705374}
-  bossDefendText: {fileID: 824833214}
-  bossDodgeText: {fileID: 15446621}
+  bossAttackText: {fileID: 0}
+  bossHpText: {fileID: 0}
+  bossStaminaText: {fileID: 0}
+  bossDefendText: {fileID: 0}
+  bossDodgeText: {fileID: 0}
 --- !u!114 &1305785726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5189,7 +5194,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "M\xE0y Kh\xF4n"
+  m_text: "B\u1EA1n nh\u1EADn th\xEAm 2 \u0111i\u1EC3m k\u0129  n\u0103ng"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5252,7 +5257,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -162.25891, y: 0, z: -148.7373, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -6181,8 +6186,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -152.0096, y: 22.606}
-  m_SizeDelta: {x: 142.2791, y: 45.211}
+  m_AnchoredPosition: {x: -174.68697, y: 22.606}
+  m_SizeDelta: {x: 187.6338, y: 45.211}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046507556
 MonoBehaviour:

@@ -20,12 +20,11 @@ public class StatsDisplay : MonoBehaviour
     private BaseBoss boss;
     private EnemyStats enemyStats;
     // Placeholder variables for player stats
-    private int playerAttack = 0;
-    private int playerHp = 0;
-    private int playerStamina = 0;
-    private int playerDefend = 0;
-    private int playerDodge = 0;
-
+    private int playerAttack;
+    private int playerHp;
+    private int playerStamina;
+    private int playerDefend;
+    private int playerDodge;
     private string saveFilePath;
 
     void Start()
@@ -48,7 +47,6 @@ public class StatsDisplay : MonoBehaviour
         UpdateStatsUI();
         // Khởi tạo đối tượng Boss (hoặc nhận từ một script khác)
         boss = new BaseBoss();
-        enemyStats = new EnemyStats();
         if (this.gameObject.scene.name == "Boss1")
         {
             boss.StartBoss1();
@@ -61,41 +59,26 @@ public class StatsDisplay : MonoBehaviour
         {
             boss.StartBoss3();
         }
-        else
-        {
-            enemyStats.AssignRandomStrength();
-        }
         // Cập nhật UI với các giá trị của Boss
         UpdateBossStatsUI();
     }
 
     void UpdateBossStatsUI()
     {
-        if (this.gameObject.scene.name == "NormalMap")
-        {
-            bossAttackText.text = enemyStats.attack + " :Attack";
-            bossHpText.text = enemyStats.hp + " :HP";
-            bossStaminaText.text = enemyStats.stamina + " :Stamina";
-            bossDefendText.text = enemyStats.defense + " :Defense";
-            bossDodgeText.text = enemyStats.dodge + " :Dodge";
-        }
-        else
-        {
             // Cập nhật các giá trị từ BaseBoss lên UI
             bossAttackText.text = boss.attack + " :Attack";
             bossHpText.text = boss.hp + " :HP";
             bossStaminaText.text = boss.stamina + " :Stamina";
             bossDefendText.text = boss.defense + " :Defense";
             bossDodgeText.text = boss.dodge + " :Dodge";
-        }
     }
 
     void UpdateStatsUI()
     {
         // Update player stats UI
-        playerAttackText.text = "Attack: " + playerAttack;
-        playerHpText.text = "HP: " + playerHp;
-        playerStaminaText.text = "Stamina: " + playerStamina;
+        playerAttackText.text = "Attack: " + (10 + playerAttack);
+        playerHpText.text = "HP: " + (100 + playerHp);
+        playerStaminaText.text = "Stamina: " + (100 + playerStamina);
         playerDefendText.text = "Defense: " + playerDefend;
         playerDodgeText.text = "Dodge: " + playerDodge;
     }
