@@ -33,6 +33,12 @@ public class EnemyNormalManagement : MonoBehaviour
         UpdateUI();
     }
 
+    public void ReloadScene()
+    {
+        // Reset lại scene hiện tại bằng cách load lại chính nó
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void UpdateUI()
     {
         if (enemyStaminaText != null)

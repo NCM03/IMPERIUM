@@ -39,16 +39,17 @@ public class EnemyNormalAttack : MonoBehaviour
         }
     }
 
+
     // Hàm tấn công yếu
     public void AttackWeak()
     {
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackWeak);
-            if (!playerDodge.CanDodge(enemyStats.attack, 6))
+            if (!playerDodge.CanDodge(enemyNormalManagement.stats.attack, 6))
             {
                 dame.SetActive(true);
-                int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
+                int damageDealt = Mathf.Max(enemyNormalManagement.stats.attack - playerDefense.playerDefense, 0);
                 playerHealth.TakeDamage(10+damageDealt);
                 dameText.text = $"{10 + damageDealt}";
             }
@@ -74,10 +75,10 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackNormal);
-            if (!playerDodge.CanDodge(enemyStats.attack, 8))
+            if (!playerDodge.CanDodge(enemyNormalManagement.stats.attack, 8))
             {
                 dame.SetActive(true);
-                int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
+                int damageDealt = Mathf.Max(enemyNormalManagement.stats.attack - playerDefense.playerDefense, 0);
                 playerHealth.TakeDamage(15+damageDealt);
                 dameText.text = $"{15 + damageDealt}";
             }
@@ -103,10 +104,10 @@ public class EnemyNormalAttack : MonoBehaviour
         if (playerHealth != null && enemyNormalManagement.stats.currentStamina > 0)
         {
             animator.SetTrigger(triggerAttackStrong);
-            if (!playerDodge.CanDodge(enemyStats.attack, 10))
+            if (!playerDodge.CanDodge(enemyNormalManagement.stats.attack, 10))
             {
                 dame.SetActive(true);
-                int damageDealt = Mathf.Max(enemyStats.attack - playerDefense.playerDefense, 0);
+                int damageDealt = Mathf.Max(enemyNormalManagement.stats.attack - playerDefense.playerDefense, 0);
                 playerHealth.TakeDamage(20+damageDealt);
                 dameText.text = $"{20 + damageDealt}";
             }
