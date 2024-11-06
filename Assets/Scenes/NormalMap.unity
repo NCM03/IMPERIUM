@@ -901,6 +901,7 @@ MonoBehaviour:
   dodgeText: {fileID: 384957954}
   dame: {fileID: 1940522138}
   dodge: {fileID: 362125764}
+  otherGameObject: {fileID: 1161914488}
 --- !u!1 &344014421
 GameObject:
   m_ObjectHideFlags: 0
