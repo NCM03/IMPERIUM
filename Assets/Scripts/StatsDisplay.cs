@@ -66,7 +66,7 @@ public class StatsDisplay : MonoBehaviour
     void UpdateBossStatsUI()
     {
             // Cập nhật các giá trị từ BaseBoss lên UI
-            bossAttackText.text = boss.attack + " :Attack";
+            bossAttackText.text =boss.attack + " :Attack";
             bossHpText.text = boss.hp + " :HP";
             bossStaminaText.text = boss.stamina + " :Stamina";
             bossDefendText.text = boss.defense + " :Defense";

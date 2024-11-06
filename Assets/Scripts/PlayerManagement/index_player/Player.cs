@@ -242,13 +242,6 @@ public class Player : MonoBehaviour
         hp = 1;
         stamina = 1;
         dodge = 1;
-
-        // Cập nhật giao diện
-        if (nameInputField != null) // Kiểm tra xem InputField có được tham chiếu không
-        {
-            nameInputField.text = ""; // Đặt lại tên trong InputField về chuỗi rỗng
-        }
-
         UpdateUI();
     }
 

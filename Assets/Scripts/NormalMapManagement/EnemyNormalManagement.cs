@@ -47,7 +47,7 @@ public class EnemyNormalManagement : MonoBehaviour
     void UpdateBossStatsUI()
     {
         // Sử dụng các giá trị đã random từ `EnemyStats` để cập nhật UI
-        bossAttackText.text = stats.attack + " :Attack";
+        bossAttackText.text = (10 + stats.attack) + " :Attack";
         bossHpText.text = stats.hp + " :HP";
         bossStaminaText.text = stats.stamina + " :Stamina";
         bossDefendText.text = stats.defense + " :Defense";
