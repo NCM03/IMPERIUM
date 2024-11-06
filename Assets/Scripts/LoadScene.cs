@@ -11,5 +11,16 @@ public class LoadScene : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(sceneIndex);
     }
+    public void QuitGame()
+    {
+        Debug.Log("Game is quitting...");
 
+        // Thoát trong bản build
+        Application.Quit();
+
+        // Thoát trong Unity Editor
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+    }
 }
