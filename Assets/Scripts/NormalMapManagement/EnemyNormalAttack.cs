@@ -22,11 +22,15 @@ public class EnemyNormalAttack : MonoBehaviour
     public TextMeshProUGUI dodgeText;
     public GameObject dame;
     public GameObject dodge;
-
+    public GameObject otherGameObject; // Assign this in the Inspector
+    private Animator otherAnimator;
     private void Start()
     {
         animator = GetComponent<Animator>();
-
+        if (otherGameObject != null)
+        {
+            otherAnimator = otherGameObject.GetComponent<Animator>();
+        }
         // Kiểm tra xem Player đã được gán chưa
         if (playerHealth != null)
         {
@@ -55,7 +59,7 @@ public class EnemyNormalAttack : MonoBehaviour
             }
             else
             {
-                animator.SetTrigger(triggerDodge);
+                otherAnimator.SetTrigger(triggerDodge);
                 dodge.SetActive(true);
                 dodgeText.text = "Dodged!";
             }
@@ -84,7 +88,7 @@ public class EnemyNormalAttack : MonoBehaviour
             }
             else
             {
-                animator.SetTrigger(triggerDodge);
+                otherAnimator.SetTrigger(triggerDodge);
                 dodge.SetActive(true);
                 dodgeText.text = "Dodged!";
             }
@@ -113,7 +117,7 @@ public class EnemyNormalAttack : MonoBehaviour
             }
             else
             {
-                animator.SetTrigger(triggerDodge);
+                otherAnimator.SetTrigger(triggerDodge);
                 dodge.SetActive(true);
                 dodgeText.text = "Dodged!";
             }
