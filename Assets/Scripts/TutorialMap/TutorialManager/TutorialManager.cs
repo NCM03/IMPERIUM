@@ -90,7 +90,7 @@ public class TutorialManager : MonoBehaviour
         }if (step == 3)
         {
             guidePanel.SetActive(true);
-            guideText.text = "Khi thể lực xuống dưới 50%, bạn có thể ấn để hồi thể lực cũng như 5% máu đã mất";
+            guideText.text = "Khi thể lực xuống dưới 50%, bạn có thể ấn để hồi thể lực";
         }
         if (step == 5 )
         {

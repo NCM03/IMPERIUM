@@ -3,19 +3,23 @@
   "WorkspaceRootPath": "E:\\Unity\\Test\\git\\IMPERIUM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\tutorialmap\\tutorialmanager\\tutorialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tutorialmap\\tutorialmanager\\tutorialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\normalmapmanagement\\enemynormalmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\normalmapmanagement\\enemynormalmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\statsdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\statsdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\statsdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\playermanagement\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\playermanagement\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermanagement\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -91,6 +95,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "TutorialManager.cs",
+              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
+              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAgwFwAAABWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T07:17:44.088Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "EnemyNormalManagement.cs",
               "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
@@ -103,7 +120,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "StatsDisplay.cs",
               "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\StatsDisplay.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StatsDisplay.cs",
@@ -111,12 +128,11 @@
               "RelativeToolTip": "Assets\\Scripts\\StatsDisplay.cs",
               "ViewState": "AQIAADQAAAAAAAAAAAAQwEoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T07:10:58.489Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-06T07:10:58.489Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Player.cs",
               "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
@@ -124,12 +140,11 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
               "ViewState": "AQIAANYAAAAAAAAAAAAAANYAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T07:09:21.963Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-06T07:09:21.963Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "LoadScene.cs",
               "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LoadScene.cs",
@@ -137,12 +152,11 @@
               "RelativeToolTip": "Assets\\Scripts\\LoadScene.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T06:35:23.186Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-06T06:35:23.186Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "loadboss123.cs",
               "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\loadboss123.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\loadboss123.cs",
