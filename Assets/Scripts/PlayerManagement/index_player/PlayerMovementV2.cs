@@ -17,6 +17,7 @@ public class PlayerMovementV2 : MonoBehaviour
     public Transform enemyTransform;
     private Rigidbody2D rb;
     public float distance;
+    public AudioSource movementSound;
 
     void Start()
     {
@@ -69,6 +70,7 @@ public class PlayerMovementV2 : MonoBehaviour
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
             isMoving = true;  // Bắt đầu di chuyển
+            movementSound.Play();
             animator.SetTrigger(triggerWalkRight);  // Phát animation ngay lập tức
             playerStamina.ReduceStamina(10f);
         }
@@ -82,7 +84,8 @@ public class PlayerMovementV2 : MonoBehaviour
         if (newXPosition >= leftBoundary)
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
-            isMoving = true;  // Bắt đầu di chuyển
+            isMoving = true;  // Bắt đầu di chuyển'
+            movementSound.Play();
             animator.SetTrigger(triggerWalkLeft);  // Phát animation ngay lập tức
             playerStamina.ReduceStamina(10f);
         }

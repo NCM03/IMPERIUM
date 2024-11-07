@@ -14,7 +14,7 @@ public class BossMovement : MonoBehaviour
     private Animator animator;
     private string triggerMoveLeft = "walk_left";
     private string triggerMoveRight = "walk_right";
-
+    public AudioSource movementSound;
     private Boss1NormalManagement boss1NormalManagement;
 
     public void Start()
@@ -37,6 +37,7 @@ public class BossMovement : MonoBehaviour
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
             isMoving = true;
+            movementSound.Play();
             animator.SetTrigger(triggerMoveLeft);
             boss1NormalManagement.ReduceStamina(10);
         }
@@ -51,6 +52,7 @@ public class BossMovement : MonoBehaviour
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
             isMoving = true;
+            movementSound.Play();
             animator.SetTrigger(triggerMoveRight);
             boss1NormalManagement.ReduceStamina(10);
         }

@@ -30,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
 	private Animator otherAnimator;
 	private string saveFilePath;
     float distanceToEnemy;
+    public AudioSource attackSound;
+    public AudioSource dodgeSound;
 
     private void Start()
     {
@@ -95,6 +97,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     // Kẻ địch không né được, tiến hành tấn công
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(10 + attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
                     enemyHealth.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -103,6 +106,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
                     otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -129,6 +133,7 @@ public class PlayerAttack : MonoBehaviour
                     {
                         // Kẻ địch không né được, tiến hành tấn công
                         dame.SetActive(true);
+                        attackSound.Play();
                         int damageDealt = Mathf.Max(10 + attackDamage - enemyNormalManagement.stats.defense, 0); // Trừ phòng thủ của địch
                         enemyNormalManagement.TakeDamage(damageDealt);
                         dameText.text = $"{damageDealt}";
@@ -136,6 +141,7 @@ public class PlayerAttack : MonoBehaviour
                     else
                     {
 						otherAnimator.SetTrigger(triggerDodged);
+                        dodgeSound.Play();
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -167,6 +173,7 @@ public class PlayerAttack : MonoBehaviour
                     if (!boss1NormalManagement.baseBoss.CanDodge(10 + attackDamage, 6))
                     {
                         dame.SetActive(true);
+                        attackSound.Play();
                         int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
                         boss1NormalManagement.TakeDamage(damageDealt);
                         dameText.text = $"{damageDealt}";
@@ -174,6 +181,7 @@ public class PlayerAttack : MonoBehaviour
                     else
                     {
 						otherAnimator.SetTrigger(triggerDodged);
+                        dodgeSound.Play();
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -206,6 +214,7 @@ public class PlayerAttack : MonoBehaviour
                     {
                         // Kẻ địch không né được, tiến hành tấn công
                         dame.SetActive(true);
+                        attackSound.Play();
                         int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
                         boss1NormalManagement.TakeDamage(damageDealt);
                         dameText.text = $"{damageDealt}";
@@ -213,6 +222,7 @@ public class PlayerAttack : MonoBehaviour
                     else
                     {
 						otherAnimator.SetTrigger(triggerDodged);
+                        dodgeSound.Play();
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -245,6 +255,7 @@ public class PlayerAttack : MonoBehaviour
                     {
                         // Kẻ địch không né được, tiến hành tấn công
                         dame.SetActive(true);
+                        attackSound.Play();
                         int damageDealt = Mathf.Max(10 + attackDamage - boss1NormalManagement.baseBoss.defense, 0); // Trừ phòng thủ của địch
                         boss1NormalManagement.TakeDamage(10 + damageDealt);
                         dameText.text = $"{10 + damageDealt}";
@@ -252,6 +263,7 @@ public class PlayerAttack : MonoBehaviour
                     else
                     {
 						otherAnimator.SetTrigger(triggerDodged);
+                        dodgeSound.Play();
                         dodge.SetActive(true);
                         dodgeText.text = "Dodged!";
                     }
@@ -286,6 +298,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!enemyHealth.CanDodge())
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(15+attackDamage - enemyHealth.defense, 0); // Trừ phòng thủ của địch
                     enemyHealth.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -293,6 +306,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -314,6 +328,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!enemyStats.CanDodge(15+attackDamage, 8))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(15+attackDamage - enemyNormalManagement.stats.defense, 0);
                     enemyNormalManagement.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -321,6 +336,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -341,6 +357,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!boss1NormalManagement.baseBoss.CanDodge(15+attackDamage, 8))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(15+attackDamage - boss1NormalManagement.baseBoss.defense, 0);
                     boss1NormalManagement.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -348,6 +365,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -368,6 +386,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!boss1NormalManagement.baseBoss.CanDodge(15+attackDamage, 8))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(15+attackDamage - boss1NormalManagement.baseBoss.defense, 0);
                     boss1NormalManagement.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -375,6 +394,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -395,6 +415,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!boss1NormalManagement.baseBoss.CanDodge(15 + attackDamage, 8))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(15 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
                     boss1NormalManagement.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -402,6 +423,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -427,6 +449,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!enemyHealth.CanDodge())
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(20+ attackDamage - enemyHealth.defense, 0);
                     enemyHealth.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -434,6 +457,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -454,6 +478,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!enemyStats.CanDodge(20+attackDamage, 10))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(20+attackDamage - enemyNormalManagement.stats.defense, 0);
                     enemyNormalManagement.TakeDamage( damageDealt);
                     dameText.text = $"{ damageDealt}";
@@ -461,6 +486,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -481,6 +507,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!boss1NormalManagement.baseBoss.CanDodge(20+attackDamage, 10))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(20 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
                     boss1NormalManagement.TakeDamage(damageDealt);
                     dameText.text = $"{ damageDealt}";
@@ -488,6 +515,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -508,6 +536,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!boss1NormalManagement.baseBoss.CanDodge(20 + attackDamage, 10))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(20 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
                     boss1NormalManagement.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -515,6 +544,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }
@@ -535,6 +565,7 @@ public class PlayerAttack : MonoBehaviour
                 if (!boss1NormalManagement.baseBoss.CanDodge(20 + attackDamage, 10))
                 {
                     dame.SetActive(true);
+                    attackSound.Play();
                     int damageDealt = Mathf.Max(20 + attackDamage - boss1NormalManagement.baseBoss.defense, 0);
                     boss1NormalManagement.TakeDamage(damageDealt);
                     dameText.text = $"{damageDealt}";
@@ -542,6 +573,7 @@ public class PlayerAttack : MonoBehaviour
                 else
                 {
 					otherAnimator.SetTrigger(triggerDodged);
+                    dodgeSound.Play();
                     dodge.SetActive(true);
                     dodgeText.text = "Dodged!";
                 }

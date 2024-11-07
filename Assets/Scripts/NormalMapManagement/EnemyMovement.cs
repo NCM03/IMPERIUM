@@ -12,7 +12,7 @@ public class EnemyMovement : MonoBehaviour
     private Animator animator;
     private string triggerMoveLeft = "walk_left";
     private string triggerMoveRight = "walk_right";
-
+    public AudioSource movementSound;
     private EnemyNormalManagement enemyNormalManagement;
 
     public void Start()
@@ -35,6 +35,7 @@ public class EnemyMovement : MonoBehaviour
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
             isMoving = true;
+            movementSound.Play();
             animator.SetTrigger(triggerMoveLeft);
             enemyNormalManagement.ReduceStamina(10);
         }
@@ -49,6 +50,7 @@ public class EnemyMovement : MonoBehaviour
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
             isMoving = true;
+            movementSound.Play();
             animator.SetTrigger(triggerMoveRight);
             enemyNormalManagement.ReduceStamina(10);
         }

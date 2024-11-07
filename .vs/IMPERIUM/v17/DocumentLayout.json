@@ -1,29 +1,33 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Unity\\Test\\git\\IMPERIUM\\",
+  "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\IMPERIUM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\tutorialmap\\tutorialmanager\\tutorialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\imperium\\assets\\scripts\\playermanagement\\index_player\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermanagement\\index_player\\playerattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|c:\\users\\pc\\desktop\\imperium\\assets\\scripts\\tutorialmap\\tutorialmanager\\tutorialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\tutorialmap\\tutorialmanager\\tutorialmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|e:\\unity\\test\\git\\imperium\\assets\\scripts\\normalmapmanagement\\enemynormalmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\IMPERIUM\\assets\\scripts\\normalmapmanagement\\enemynormalmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\normalmapmanagement\\enemynormalmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\statsdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\IMPERIUM\\assets\\scripts\\statsdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\statsdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\playermanagement\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\IMPERIUM\\assets\\scripts\\playermanagement\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playermanagement\\index_player\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\IMPERIUM\\assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loadscene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|E:\\Unity\\Test\\git\\IMPERIUM\\assets\\scripts\\loadboss123.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|C:\\Users\\PC\\Desktop\\IMPERIUM\\assets\\scripts\\loadboss123.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EABE1080-1A03-6ADF-7C88-7D201426DE12}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\loadboss123.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -34,8 +38,16 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 13,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
@@ -58,19 +70,7 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
               "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
               "$type": "Bookmark",
@@ -90,41 +90,57 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+              "Name": "ST:2:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "PlayerAttack.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\PlayerManagement\\index_player\\PlayerAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerManagement\\index_player\\PlayerAttack.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\PlayerManagement\\index_player\\PlayerAttack.cs*",
+              "RelativeToolTip": "Assets\\Scripts\\PlayerManagement\\index_player\\PlayerAttack.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T14:13:41.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TutorialManager.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
-              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\TutorialMap\\TutorialManager\\TutorialManager.cs",
-              "ViewState": "AQIAAE0AAAAAAAAAAAAgwFwAAABWAAAA",
+              "ViewState": "AgIAAE0AAAAAAAAAAAA1wFwAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-06T07:17:44.088Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EnemyNormalManagement.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
-              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
               "RelativeToolTip": "Assets\\Scripts\\NormalMapManagement\\EnemyNormalManagement.cs",
               "ViewState": "AQIAACgAAAAAAAAAAAAQwDkAAAA/AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-06T07:12:03.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-06T07:12:03.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "StatsDisplay.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\StatsDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\StatsDisplay.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\StatsDisplay.cs",
-              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\StatsDisplay.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\StatsDisplay.cs",
               "RelativeToolTip": "Assets\\Scripts\\StatsDisplay.cs",
               "ViewState": "AQIAADQAAAAAAAAAAAAQwEoAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -132,11 +148,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Player.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
-              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerManagement\\index_player\\Player.cs",
               "ViewState": "AQIAANYAAAAAAAAAAAAAANYAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -144,11 +160,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "LoadScene.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\LoadScene.cs",
-              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\LoadScene.cs",
               "RelativeToolTip": "Assets\\Scripts\\LoadScene.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAFAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -156,25 +172,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "loadboss123.cs",
-              "DocumentMoniker": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\loadboss123.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\loadboss123.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\loadboss123.cs",
-              "ToolTip": "E:\\Unity\\Test\\git\\IMPERIUM\\Assets\\Scripts\\loadboss123.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\IMPERIUM\\Assets\\Scripts\\loadboss123.cs",
               "RelativeToolTip": "Assets\\Scripts\\loadboss123.cs",
               "ViewState": "AQIAAAsAAAAAAAAAAAAYwCUAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-06T06:11:46.663Z"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 120,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
             }
           ]
         }

@@ -10,6 +10,7 @@ public class PlayerStamina : MonoBehaviour
     public float currentStamina;   // Thể lực hiện tại
     public TextMeshProUGUI playerStaminaText;
     private string saveFilePath;
+    public AudioSource staminaSound;
 
     void Start()
     {
@@ -62,12 +63,14 @@ public class PlayerStamina : MonoBehaviour
         {
             currentStamina = maxStamina;
         }
+        staminaSound.Play();
         UpdateStaminaBar();
     }
 
     // Cập nhật thanh thể lực
     private void UpdateStaminaBar()
     {
+        
         staminaBar.fillAmount = currentStamina / maxStamina;
     }
 

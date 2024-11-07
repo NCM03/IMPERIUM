@@ -12,7 +12,7 @@ public class EnemyTutorialMovement : MonoBehaviour
     private Animator animator;
     private string triggerMoveLeft = "walk_left";
     private string triggerMoveRight = "walk_right";
-
+    public AudioSource movementSound;
     void Start()
     {
         leftBoundary = -((1080 / 2) / 100f);
@@ -52,6 +52,7 @@ public class EnemyTutorialMovement : MonoBehaviour
         if (newXPosition >= leftBoundary)
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
+            movementSound.Play();
             isMoving = true;  // Bắt đầu di chuyển
             animator.SetTrigger(triggerMoveLeft);  // Phát animation di chuyển trái
             enemyStamina.ReduceStamina(10f);
@@ -67,6 +68,7 @@ public class EnemyTutorialMovement : MonoBehaviour
         {
             targetPosition = new Vector3(newXPosition, transform.position.y, transform.position.z);
             isMoving = true;  // Bắt đầu di chuyển
+            movementSound.Play();
             animator.SetTrigger(triggerMoveRight);  // Phát animation di chuyển phải
             enemyStamina.ReduceStamina(10f);
         }
