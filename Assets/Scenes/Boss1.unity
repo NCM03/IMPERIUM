@@ -583,10 +583,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseBoss:
-    attack: 50
+    attack: 20
     defense: 10
-    hp: 200
-    stamina: 200
+    hp: 150
+    stamina: 180
     dodge: 10
     currentStamina: 0
     currentHp: 0
@@ -620,7 +620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2d77a49dbd0f047aff9da25121f254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0.5
+  moveDistance: 1
   moveSpeed: 2
   leftBoundary: 0
   rightBoundary: 0
@@ -3370,7 +3370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6151049123cdea4fa1d535474ea6448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0.5
+  moveDistance: 1
   leftBoundary: 0
   rightBoundary: 0
   player: {fileID: 1161914488}

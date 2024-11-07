@@ -12,22 +12,22 @@ public class BaseBoss
     public int currentHp;
     public void StartBoss1()
     {
-        attack = 30;
+        attack = 20;
         defense = 10;
-        hp = 160;
+        hp = 150;
         stamina = 180;
-        dodge = 20;
+        dodge = 10;
         currentStamina = stamina;
         currentHp = hp;
     }
 
     public void StartBoss2()
     {
-        attack = 40;
+        attack = 30;
         defense = 20;
-        hp = 180;
-        stamina = 210;
-        dodge = 30;
+        hp = 160;
+        stamina = 200;
+        dodge = 20;
         currentStamina = stamina;
         currentHp = hp;
 
@@ -36,11 +36,11 @@ public class BaseBoss
 
     public void StartBoss3()
     {
-        attack = 60;
+        attack = 40;
         defense = 30;
-        hp = 200;
-        stamina = 230;
-        dodge = 50;
+        hp = 180;
+        stamina = 220;
+        dodge = 30;
         currentStamina = stamina;
         currentHp = hp;
 

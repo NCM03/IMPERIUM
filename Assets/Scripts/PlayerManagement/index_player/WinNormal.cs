@@ -50,7 +50,7 @@ public class WinNormal : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
             // Cộng thêm 2 điểm kỹ năng (skillPoints)
-            data.skillPoints += 2;
+            data.skillPoints += 5;
 
             // Chuyển đổi đối tượng PlayerData thành JSON và ghi lại vào file
             string updatedJson = JsonUtility.ToJson(data, true);
@@ -72,7 +72,7 @@ public class WinNormal : MonoBehaviour
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
             // Cộng thêm 2 điểm kỹ năng (skillPoints)
-            data.skillPoints += 5;
+            data.skillPoints += 10;
 
             // Chuyển đổi đối tượng PlayerData thành JSON và ghi lại vào file
             string updatedJson = JsonUtility.ToJson(data, true);

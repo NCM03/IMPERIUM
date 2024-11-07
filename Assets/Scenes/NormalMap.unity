@@ -862,7 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48f18a740b514d543afec4f0c6107b77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0.5
+  moveDistance: 1
   moveSpeed: 2
   leftBoundary: 0
   rightBoundary: 0
@@ -3717,7 +3717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6151049123cdea4fa1d535474ea6448, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 0.5
+  moveDistance: 1
   leftBoundary: 0
   rightBoundary: 0
   player: {fileID: 1161914488}
